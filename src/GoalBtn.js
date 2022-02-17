@@ -4,7 +4,7 @@ import Paper from "@mui/material/Paper";
 function GoalBtn(props) {
   let id = props.id;
   //depending on first load
-  let calories = Number(props.id) * Number(props.weight);
+  let calories = Number(props.id) * Number(props.storedTotals[0]["Weight"]);
   // let caloriesLoaded = () => {
   //   if (window.localStorage.getItem("storedTotals") !== null) {
   //     return (
@@ -63,10 +63,7 @@ function GoalBtn(props) {
           props.handleStoredTotal(carb, "Carb");
           props.handleStoredTotal(protein, "Protein");
           props.handleStoredTotal(fat, "Fat");
-          props.handleStoredTotal(
-            id === "12" ? "Cut" : id === "15" ? "Maintain" : "Bulk",
-            "Goal"
-          );
+          props.handleStoredTotal(id, "Goal");
           props.handleStoredTotal(
             Number(props.weight)
               ? Number(props.weight)

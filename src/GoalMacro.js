@@ -30,16 +30,7 @@ function GoalMacros(props) {
       </div>
       <div className="Macro-totals">
         <div>Carbohydrates</div>
-        <div>
-          {isInitialLoad
-            ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Carb"
-              ] && setInitialLoad(false)
-            : props.isAdjusted
-            ? props.adjustedMacros[0].carbAdjusted
-            : props.storedTotals[0].Carb}
-          g
-        </div>
+        <div>{props.storedTotals[0].Carb}g</div>
         <div>{props.storedPercentages[0].Carbpercent}%</div>
       </div>
       <div className="Macro-totals">
