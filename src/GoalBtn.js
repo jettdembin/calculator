@@ -4,27 +4,40 @@ import Paper from "@mui/material/Paper";
 function GoalBtn(props) {
   let id = props.id;
   //depending on first load
-  let caloriesLoaded =
-    JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-    Number(props.id);
   let calories = Number(props.id) * Number(props.weight);
+  // let caloriesLoaded = () => {
+  //   if (window.localStorage.getItem("storedTotals") !== null) {
+  //     return (
+  //       JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
+  //       Number(props.id)
+  //     );
+  //   }
+  // };
 
   let carb = Math.round((calories * (Number(props.percentCarb) / 10)) / 4);
-  let carbLoaded = JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-    "Carb"
-  ];
+  // const carbLoaded = () => {
+  //   if (window.localStorage.getItem("storedTotals") !== null) {
+  //     return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"];
+  //   }
+  // };
 
   let protein = Math.round(
     (calories * (Number(props.percentProtein) / 10)) / 4
   );
-  let proteinLoaded = JSON.parse(
-    window.localStorage.getItem("storedTotals")
-  )[0]["Protein"];
+  // const proteinLoaded = () => {
+  //   if (window.localStorage.getItem("storedTotals") !== null) {
+  //     return JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+  //       "Protein"
+  //     ];
+  //   }
+  // };
 
   let fat = Math.round((calories * (Number(props.percentFat) / 10)) / 9);
-  let fatLoaded = JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-    "Fat"
-  ];
+  // const fatLoaded = () => {
+  //   if (window.localStorage.getItem("storedTotals") !== null) {
+  //     return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"];
+  //   }
+  // };
 
   return (
     <Paper>

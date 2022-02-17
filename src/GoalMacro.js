@@ -5,7 +5,6 @@ function GoalMacros(props) {
   const [isInitialLoad, setInitialLoad] = useState(true);
   return (
     <Paper>
-      {props.storedTotals[0].Carb}
       <div>
         <h2>
           {props.storedTotals[0].Carb > props.adjustedMacros[0].carbAdjusted

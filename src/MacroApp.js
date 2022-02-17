@@ -69,9 +69,14 @@ function MacroApp() {
   };
   //set remaining amt storage to be passed down to all components
   const initialRemaining = [{ Carb: 0, Protein: 0, Fat: 0 }];
-  const initialRemainingOption = JSON.parse(
-    window.localStorage.getItem("remaining") || JSON.stringify(initialRemaining)
-  );
+  const initialRemainingOption = () => {
+    if (window.localStorage.getItem("remaining") !== null) {
+      return JSON.parse(
+        window.localStorage.getItem("remaining") ||
+          JSON.stringify(initialRemaining)
+      );
+    }
+  };
   //6th state (working)
   const [remaining, setRemaining] = useState(initialRemainingOption);
   const handleMacro = (totalRemaining, macro) => {
@@ -97,9 +102,14 @@ function MacroApp() {
       Weight: 0,
     },
   ];
-  const initialTotalsOption = JSON.parse(
-    window.localStorage.getItem("storedTotals") || JSON.stringify(initialTotals)
-  );
+  const initialTotalsOption = () => {
+    if (window.localStorage.getItem("storedTotals") !== null) {
+      return JSON.parse(
+        window.localStorage.getItem("storedTotals") ||
+          JSON.stringify(initialTotals)
+      );
+    }
+  };
   //7th state
   const [storedTotals, setStoredTotals] = useState(initialTotalsOption);
   const handleStoredTotal = (total, macro) => {
@@ -118,17 +128,21 @@ function MacroApp() {
   }, [storedTotals]);
 
   //set total percentages in storage
-  const initialPercentages = JSON.stringify([
+  const initialPercentages = [
     {
       Carbpercent: 0,
       Proteinpercent: 0,
       Fatpercent: 0,
     },
-  ]);
-  const initialPercentagesOption = JSON.parse(
-    window.localStorage.getItem("storedPercentages") ||
-      JSON.stringify(initialPercentages)
-  );
+  ];
+  const initialPercentagesOption = () => {
+    if (window.localStorage.getItem("storedPercentages") !== null) {
+      return JSON.parse(
+        window.localStorage.getItem("storedPercentages") ||
+          JSON.stringify(initialPercentages)
+      );
+    }
+  };
   //8th state (last state)
   const [storedPercentages, setStoredPercent] = useState(
     initialPercentagesOption
@@ -199,30 +213,4 @@ function MacroApp() {
     </Paper>
   );
 }
-
 export default MacroApp;
-
-// MacroApp
-//-GoalCalculation
-//  -GoalForm
-//  -GoalOptions
-//    -GoalBtn
-//    -GoalBtn
-//    -GoalBtn
-//  -GoalMacros
-//  -AdjustMeals
-//  -GoalDisplay
-//    -GoalMacro
-//    -GoalMacro
-//    -GoalMacro
-//    -AdjustCalories
-//      -AdjustAmount
-//      -AdjustAmount
-//      -AdjustAmount
-//      -AdjustAmount
-//-LogItems
-//  -FoodForm
-//  -FoodList
-//    -FoodItem
-
-//id task completed
