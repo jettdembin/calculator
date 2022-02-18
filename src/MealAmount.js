@@ -2,9 +2,27 @@ import React from "react";
 import Paper from "@mui/material/Paper";
 
 function MealAmount(props) {
-  const carb = props.totals[0].carb;
-  const protein = props.totals[0].protein;
-  const fat = props.totals[0].fat;
+  let carb = () => {
+    if (props.storedTotals[0]["Carb"] === undefined) {
+      return 0;
+    } else {
+      return props.storedTotals[0]["Carb"];
+    }
+  };
+  let protein = () => {
+    if (props.storedTotals[0]["Protein"] === undefined) {
+      return 0;
+    } else {
+      return props.storedTotals[0]["Protein"];
+    }
+  };
+  let fat = () => {
+    if (props.storedTotals[0]["Fat"] === undefined) {
+      return 0;
+    } else {
+      return props.storedTotals[0]["Fat"];
+    }
+  };
 
   return (
     <Paper>

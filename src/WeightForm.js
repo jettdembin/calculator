@@ -4,10 +4,10 @@ function WeightForm(props) {
   return (
     <>
       <label>
-        Weight:
+        Weight:sss
         <input
           type="text"
-          placeholder={props.weight ? props.weight : "Pounds"}
+          placeholder="Pounds"
           value={props.weight}
           onChange={props.handleChange}
         />

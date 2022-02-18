@@ -54,9 +54,9 @@ function MacroApp() {
   };
   const initialTotalsMacros = [
     {
-      carb: undefined,
-      protein: undefined,
-      fat: undefined,
+      carb: 0,
+      protein: 0,
+      fat: 0,
     },
   ];
   //5th state
@@ -71,10 +71,9 @@ function MacroApp() {
   const initialRemaining = [{ Carb: 0, Protein: 0, Fat: 0 }];
   const initialRemainingOption = () => {
     if (window.localStorage.getItem("remaining") !== null) {
-      return JSON.parse(
-        window.localStorage.getItem("remaining") ||
-          JSON.stringify(initialRemaining)
-      );
+      return JSON.stringify(initialRemaining);
+    } else {
+      return JSON.parse(window.localStorage.getItem("remaining"));
     }
   };
   //6th state (working)
@@ -104,10 +103,9 @@ function MacroApp() {
   ];
   const initialTotalsOption = () => {
     if (window.localStorage.getItem("storedTotals") !== null) {
-      return JSON.parse(
-        window.localStorage.getItem("storedTotals") ||
-          JSON.stringify(initialTotals)
-      );
+      return JSON.parse(window.localStorage.getItem("storedTotals"));
+    } else {
+      return JSON.stringify(initialTotals);
     }
   };
   //7th state
@@ -137,10 +135,9 @@ function MacroApp() {
   ];
   const initialPercentagesOption = () => {
     if (window.localStorage.getItem("storedPercentages") !== null) {
-      return JSON.parse(
-        window.localStorage.getItem("storedPercentages") ||
-          JSON.stringify(initialPercentages)
-      );
+      return JSON.parse(window.localStorage.getItem("storedPercentages"));
+    } else {
+      return window.localStorage.getItem("storedPercentages");
     }
   };
   //8th state (last state)

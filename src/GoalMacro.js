@@ -7,13 +7,24 @@ function GoalMacros(props) {
     <Paper>
       <div>
         <h2>
-          {props.storedTotals[0].Carb > props.adjustedMacros[0].carbAdjusted
+          {JSON.parse(window.localStorage.getItem("storedTotals")) === null
+            ? `Calories per Day`
+            : props.totals[0].carb > props.adjustedMacros[0].carbAdjusted
             ? `Calories per Meal`
             : `Calories per Day`}
         </h2>
         <h2>
-          {props.calories
-            ? props.calories
+          {isInitialLoad
+            ? 0
+            : props.isAdjusted
+            ? props.adjustedMacros[0].proteinAdjusted
+            : props.totals[0].protein}
+          g
+        </h2>
+        {/* JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+            "Weight"
+          ] === null
+            ? 0
             : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                 "Weight"
               ] *
@@ -25,41 +36,36 @@ function GoalMacros(props) {
                     "Goal"
                   ] === "Maintain"
                 ? 15
-                : 18)}
-        </h2>
+                : 18) */}
       </div>
       <div className="Macro-totals">
         <div>Carbohydrates</div>
-        <div>{props.storedTotals[0].Carb}g</div>
-        <div>{props.storedPercentages[0].Carbpercent}%</div>
+        <div>{props.totals[0].carb}g</div>
+        <div>0%</div>
       </div>
       <div className="Macro-totals">
         <div>Protein</div>
         <div>
           {isInitialLoad
-            ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Protein"
-              ] && setInitialLoad(false)
+            ? 0 && setInitialLoad(false)
             : props.isAdjusted
             ? props.adjustedMacros[0].proteinAdjusted
-            : props.storedTotals[0].Protein}
+            : props.totals[0].Protein}
           g
         </div>
-        <div>{props.storedPercentages[0].Proteinpercent}%</div>
+        <div>0%</div>
       </div>
       <div className="Macro-totals">
         <div>Fat</div>
         <div>
           {isInitialLoad
-            ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Fat"
-              ] && setInitialLoad(false)
+            ? 0
             : props.isAdjusted
             ? props.adjustedMacros[0].datAdjusted
-            : props.storedTotals[0].Fat}
+            : props.totals[0].fat}
           g
         </div>
-        <div>{props.storedPercentages[0].Fatpercent}%</div>
+        <div>0%</div>
       </div>
     </Paper>
   );
