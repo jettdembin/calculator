@@ -24,12 +24,12 @@ function MacroApp() {
         setGoal("Bulk");
         break;
       default:
-        break;
+        return null;
     }
   };
   const [calories, handleCalculation] = useState(0);
   const updateCal = (id) => {
-    handleCalculation(Number(weight) * Number(id));
+    handleCalculation(Number(weight) * id);
   };
   //4th state (shows correct state on 2nd click)
   // const [totals, setTotals] = useState(initialWeight);
@@ -49,6 +49,7 @@ function MacroApp() {
         carbAdjusted: Math.round(carb / meals),
         proteinAdjusted: Math.round(protein / meals),
         fatAdjusted: Math.round(fat / meals),
+        caloriesAdjusted: Math.round(calories / meals),
       },
     ]);
   };
@@ -63,7 +64,7 @@ function MacroApp() {
   const [totals, setTotals] = useState(initialTotalsMacros);
   const updateAll = (total, macro) => {
     if (initialTotalsMacros[0].hasOwnProperty(macro)) {
-      initialTotalsMacros[0][`${macro}`] = Number(total);
+      initialTotalsMacros[0][`${macro}`] = total;
       setTotals(initialTotalsMacros);
     }
   };
@@ -71,9 +72,9 @@ function MacroApp() {
   const initialRemaining = [{ Carb: 0, Protein: 0, Fat: 0 }];
   const initialRemainingOption = () => {
     if (window.localStorage.getItem("remaining") !== null) {
-      return JSON.stringify(initialRemaining);
-    } else {
       return JSON.parse(window.localStorage.getItem("remaining"));
+    } else {
+      return JSON.stringify(initialRemaining);
     }
   };
   //6th state (working)
@@ -81,7 +82,7 @@ function MacroApp() {
   const handleMacro = (totalRemaining, macro) => {
     console.log("in remaining");
     if (initialRemaining[0].hasOwnProperty(macro)) {
-      initialRemaining[0][`${macro}`] = Number(totalRemaining);
+      initialRemaining[0][`${macro}`] = totalRemaining;
       setRemaining(initialRemaining);
     }
   };
@@ -137,7 +138,7 @@ function MacroApp() {
     if (window.localStorage.getItem("storedPercentages") !== null) {
       return JSON.parse(window.localStorage.getItem("storedPercentages"));
     } else {
-      return window.localStorage.getItem("storedPercentages");
+      return JSON.stringify(initialPercentages);
     }
   };
   //8th state (last state)
@@ -146,7 +147,7 @@ function MacroApp() {
   );
   const handleStoredPercent = (percent, macro) => {
     if (initialPercentages[0].hasOwnProperty(macro)) {
-      initialPercentages[0][`${macro}`] = Number(percent);
+      initialPercentages[0][`${macro}`] = percent;
       setStoredPercent(initialPercentages);
     }
   };

@@ -8,11 +8,11 @@ function GoalOptions(props) {
         <div className="Goal">
           <h4>Cut</h4>
           <GoalBtn
-            id="12"
+            id={12}
             {...props}
-            percentCarb="4"
-            percentProtein="4"
-            percentFat="2"
+            percentCarb={4}
+            percentProtein={4}
+            percentFat={2}
           />
         </div>
       </div>
@@ -20,11 +20,11 @@ function GoalOptions(props) {
         <div className="Goal">
           <h4>Maintain</h4>
           <GoalBtn
-            id="15"
+            id={15}
             {...props}
-            percentCarb="5"
-            percentProtein="2"
-            percentFat="3"
+            percentCarb={5}
+            percentProtein={2}
+            percentFat={3}
           />
         </div>
       </div>
@@ -32,11 +32,11 @@ function GoalOptions(props) {
         <div className="Goal">
           <h4>Bulk</h4>
           <GoalBtn
-            id="18"
+            id={18}
             {...props}
-            percentCarb="5"
-            percentProtein="1.5"
-            percentFat="3.5"
+            percentCarb={5}
+            percentProtein={1.5}
+            percentFat={3.5}
           />
         </div>
       </div>

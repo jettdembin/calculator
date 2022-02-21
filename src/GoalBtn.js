@@ -6,9 +6,9 @@ function GoalBtn(props) {
   //depending on first load
   let calories = () => {
     if (window.localStorage.getItem("storedTotals") !== null) {
-      return Number(props.id) * Number(props.storedTotals[0]["Weight"]);
+      return props.id * props.storedTotals[0]["Weight"];
     } else {
-      return Number(props.id) * Number(props.weight);
+      return props.id * Number(props.weight);
     }
   };
   // let caloriesLoaded = () => {
@@ -20,7 +20,9 @@ function GoalBtn(props) {
   //   }
   // };
 
-  let carb = Math.round((calories * (Number(props.percentCarb) / 10)) / 4);
+  let carb = Math.round(
+    (props.id * Number(props.weight) * (props.percentCarb / 10)) / 4
+  );
   // const carbLoaded = () => {
   //   if (window.localStorage.getItem("storedTotals") !== null) {
   //     return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"];
@@ -28,7 +30,7 @@ function GoalBtn(props) {
   // };
 
   let protein = Math.round(
-    (calories * (Number(props.percentProtein) / 10)) / 4
+    (props.id * Number(props.weight) * (props.percentProtein / 10)) / 4
   );
   // const proteinLoaded = () => {
   //   if (window.localStorage.getItem("storedTotals") !== null) {
@@ -38,7 +40,9 @@ function GoalBtn(props) {
   //   }
   // };
 
-  let fat = Math.round((calories * (Number(props.percentFat) / 10)) / 9);
+  let fat = Math.round(
+    (props.id * Number(props.weight) * (props.percentFat / 10)) / 9
+  );
   // const fatLoaded = () => {
   //   if (window.localStorage.getItem("storedTotals") !== null) {
   //     return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"];

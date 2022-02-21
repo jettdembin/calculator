@@ -14,12 +14,9 @@ function GoalMacros(props) {
             : `Calories per Day`}
         </h2>
         <h2>
-          {isInitialLoad
-            ? 0
-            : props.isAdjusted
-            ? props.adjustedMacros[0].proteinAdjusted
-            : props.totals[0].protein}
-          g
+          {props.isAdjusted
+            ? props.adjustedMacros[0].caloriesAdjusted
+            : props.storedTotals[0]["Weight"] * [props.storedTotals[0]["Goal"]]}
         </h2>
         {/* JSON.parse(window.localStorage.getItem("storedTotals"))[0][
             "Weight"
@@ -61,7 +58,7 @@ function GoalMacros(props) {
           {isInitialLoad
             ? 0
             : props.isAdjusted
-            ? props.adjustedMacros[0].datAdjusted
+            ? props.adjustedMacros[0].fatAdjusted
             : props.totals[0].fat}
           g
         </div>

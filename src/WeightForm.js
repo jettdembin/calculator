@@ -4,7 +4,7 @@ function WeightForm(props) {
   return (
     <>
       <label>
-        Weight:sss
+        Weight:sssszz
         <input
           type="text"
           placeholder="Pounds"
