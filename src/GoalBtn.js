@@ -11,43 +11,40 @@ function GoalBtn(props) {
       return props.id * Number(props.weight);
     }
   };
-  // let caloriesLoaded = () => {
-  //   if (window.localStorage.getItem("storedTotals") !== null) {
-  //     return (
-  //       JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-  //       Number(props.id)
-  //     );
-  //   }
-  // };
 
   let carb = Math.round(
     (props.id * Number(props.weight) * (props.percentCarb / 10)) / 4
   );
-  // const carbLoaded = () => {
-  //   if (window.localStorage.getItem("storedTotals") !== null) {
-  //     return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"];
-  //   }
-  // };
+  let carbLoaded = Math.round(
+    (props.id *
+      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
+      (props.percentCarb / 10)) /
+      4
+  );
 
   let protein = Math.round(
     (props.id * Number(props.weight) * (props.percentProtein / 10)) / 4
   );
-  // const proteinLoaded = () => {
-  //   if (window.localStorage.getItem("storedTotals") !== null) {
-  //     return JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-  //       "Protein"
-  //     ];
-  //   }
-  // };
+  let proteinLoaded = Math.round(
+    (props.id *
+      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
+      (props.percentProtein / 10)) /
+      4
+  );
 
   let fat = Math.round(
     (props.id * Number(props.weight) * (props.percentFat / 10)) / 9
   );
-  // const fatLoaded = () => {
-  //   if (window.localStorage.getItem("storedTotals") !== null) {
-  //     return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"];
-  //   }
-  // };
+  let fatLoaded = Math.round(
+    (props.id *
+      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
+      (props.percentFat / 10)) /
+      9
+  );
+
+  let weightLoaded = JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+    "Weight"
+  ];
 
   return (
     <Paper>
@@ -66,34 +63,46 @@ function GoalBtn(props) {
             props.toggleIsAdjusted();
           }
           //set storage for totals on btn click
-          props.handleMacro(carb, "Carb");
-          props.handleMacro(protein, "Protein");
-          props.handleMacro(fat, "Fat");
-          //set storage for total macros and percentages
-          props.handleStoredTotal(carb, "Carb");
-          props.handleStoredTotal(protein, "Protein");
-          props.handleStoredTotal(fat, "Fat");
-          props.handleStoredTotal(id, "Goal");
-          props.handleStoredTotal(
-            Number(props.weight)
-              ? Number(props.weight)
-              : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                  "Weight"
-                ],
-            "Weight"
-          );
-          props.handleStoredPercent(
-            Number(props.percentCarb) * 10,
-            "Carbpercent"
-          );
-          props.handleStoredPercent(
-            Number(props.percentProtein) * 10,
-            "Proteinpercent"
-          );
-          props.handleStoredPercent(
-            Number(props.percentFat) * 10,
-            "Fatpercent"
-          );
+          if (props.isInitialLoad) {
+            if (window.localStorage.getItem("storedTotals") !== null) {
+              props.handleMacro(carbLoaded, "Carb");
+              props.handleMacro(proteinLoaded, "Protein");
+              props.handleMacro(fatLoaded, "Fat");
+              //set storage for total macros and percentages
+              props.handleStoredTotal(carbLoaded, "Carb");
+              props.handleStoredTotal(proteinLoaded, "Protein");
+              props.handleStoredTotal(fatLoaded, "Fat");
+              props.handleStoredTotal(id, "Goal");
+              props.handleStoredTotal(weightLoaded, "Weight");
+              props.handleStoredPercent(props.percentCarb * 10, "Carbpercent");
+              props.handleStoredPercent(
+                props.percentProtein * 10,
+                "Proteinpercent"
+              );
+              props.handleStoredPercent(props.percentFat * 10, "Fatpercent");
+              props.setInitialLoad(false);
+            } else {
+              props.handleMacro(carb, "Carb");
+              props.handleMacro(protein, "Protein");
+              props.handleMacro(fat, "Fat");
+              //set storage for total macros and percentages
+              props.handleStoredTotal(carb, "Carb");
+              props.handleStoredTotal(protein, "Protein");
+              props.handleStoredTotal(fat, "Fat");
+              props.handleStoredTotal(id, "Goal");
+              props.handleStoredTotal(props.weight, "Weight");
+            }
+          } else {
+            props.handleMacro(carb, "Carb");
+            props.handleMacro(protein, "Protein");
+            props.handleMacro(fat, "Fat");
+            //set storage for total macros and percentages
+            props.handleStoredTotal(carb, "Carb");
+            props.handleStoredTotal(protein, "Protein");
+            props.handleStoredTotal(fat, "Fat");
+            props.handleStoredTotal(id, "Goal");
+            props.handleStoredTotal(props.weight, "Weight");
+          }
         }}
       >
         Calculate

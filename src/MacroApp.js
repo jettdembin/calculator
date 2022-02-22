@@ -10,6 +10,7 @@ import LogItems from "./LogItems";
 import useFormDigitState from "./hooks/useFormDigitState";
 
 function MacroApp() {
+  const [isInitialLoad, setInitialLoad] = useState(true);
   const [weight, handleChange] = useFormDigitState("");
   const [goal, setGoal] = useState("");
   const toggleGoal = (goal) => {
@@ -31,7 +32,7 @@ function MacroApp() {
   const updateCal = (id) => {
     handleCalculation(Number(weight) * id);
   };
-  //4th state (shows correct state on 2nd click)
+  //4th state
   // const [totals, setTotals] = useState(initialWeight);
   const adjustments = [
     {
@@ -178,6 +179,8 @@ function MacroApp() {
       <Grid container>
         <Grid item xs={11} md={8} sm={4}>
           <GoalCalculation
+            isInitialLoad={isInitialLoad}
+            setInitialLoad={setInitialLoad}
             storedPercentages={storedPercentages}
             handleStoredPercent={handleStoredPercent}
             storedTotals={storedTotals}
