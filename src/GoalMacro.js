@@ -17,22 +17,6 @@ function GoalMacros(props) {
             ? props.adjustedMacros[0].caloriesAdjusted
             : props.storedTotals[0]["Weight"] * [props.storedTotals[0]["Goal"]]}
         </h2>
-        {/* JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-            "Weight"
-          ] === null
-            ? 0
-            : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Weight"
-              ] *
-              (JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Goal"
-              ] === "Cut"
-                ? 12
-                : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                    "Goal"
-                  ] === "Maintain"
-                ? 15
-                : 18) */}
       </div>
       <div className="Macro-totals">
         <div>Carbohydrates</div>
@@ -43,13 +27,6 @@ function GoalMacros(props) {
             : props.adjustedMacros[0].carbAdjusted
             ? props.adjustedMacros[0].carbAdjusted
             : props.storedTotals[0]["Carb"]}
-          {/* {isInitialLoad
-            ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Carb"
-              ] && setInitialLoad(false)
-            : props.isAdjusted
-            ? props.adjustedMacros[0].carbAdjusted
-            : props.storedTotals[0]["Carb"]} */}
           g
         </div>
         <div>{props.storedPercentages[0]["Carbpercent"]}%</div>
@@ -65,13 +42,6 @@ function GoalMacros(props) {
             : props.adjustedMacros[0].proteinAdjusted
             ? props.adjustedMacros[0].proteinAdjusted
             : props.storedTotals[0]["Protein"]}
-          {/* {isInitialLoad
-            ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Protein"
-              ] && setInitialLoad(false)
-            : props.isAdjusted
-            ? props.adjustedMacros[0].proteinAdjusted
-            : props.storedTotals[0]["Protein"]} */}
           g
         </div>
         <div>{props.storedPercentages[0]["Proteinpercent"]}%</div>

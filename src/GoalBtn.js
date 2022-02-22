@@ -64,7 +64,10 @@ function GoalBtn(props) {
           }
           //set storage for totals on btn click
           if (props.isInitialLoad) {
-            if (window.localStorage.getItem("storedTotals") !== null) {
+            if (
+              window.localStorage.getItem("storedTotals") !== null &&
+              !props.weight
+            ) {
               props.handleMacro(carbLoaded, "Carb");
               props.handleMacro(proteinLoaded, "Protein");
               props.handleMacro(fatLoaded, "Fat");
@@ -81,6 +84,22 @@ function GoalBtn(props) {
               );
               props.handleStoredPercent(props.percentFat * 10, "Fatpercent");
               props.setInitialLoad(false);
+            }
+            if (props.weight) {
+              props.handleMacro(carb, "Carb");
+              props.handleMacro(protein, "Protein");
+              props.handleMacro(fat, "Fat");
+              //set storage for total macros and percentages
+              props.handleStoredTotal(carb, "Carb");
+              props.handleStoredTotal(protein, "Protein");
+              props.handleStoredTotal(fat, "Fat");
+              props.handleStoredTotal(id, "Goal");
+              props.handleStoredTotal(Number(props.weight), "Weight");
+              props.setInitialLoad(false);
+            }
+          } else {
+            if (props.isInitialLoad === false && !props.weight) {
+              alert("Please re-enter weight");
             } else {
               props.handleMacro(carb, "Carb");
               props.handleMacro(protein, "Protein");
@@ -92,16 +111,6 @@ function GoalBtn(props) {
               props.handleStoredTotal(id, "Goal");
               props.handleStoredTotal(props.weight, "Weight");
             }
-          } else {
-            props.handleMacro(carb, "Carb");
-            props.handleMacro(protein, "Protein");
-            props.handleMacro(fat, "Fat");
-            //set storage for total macros and percentages
-            props.handleStoredTotal(carb, "Carb");
-            props.handleStoredTotal(protein, "Protein");
-            props.handleStoredTotal(fat, "Fat");
-            props.handleStoredTotal(id, "Goal");
-            props.handleStoredTotal(props.weight, "Weight");
           }
         }}
       >
