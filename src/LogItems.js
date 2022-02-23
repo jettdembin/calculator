@@ -1,5 +1,4 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
 import FoodForm from "./FoodForm";
 import FoodList from "./FoodList";
 import useFoodState from "./hooks/useFoodState";
@@ -10,7 +9,7 @@ function LogItems(props) {
   const { foods, addFood, removeFood, allowEdit } = useFoodState(initialFoods);
 
   return (
-    <Paper>
+    <>
       <FoodForm {...props} addFood={addFood} />
       <FoodList
         {...props}
@@ -18,7 +17,7 @@ function LogItems(props) {
         removeFood={removeFood}
         allowEdit={allowEdit}
       />
-    </Paper>
+    </>
   );
 }
 

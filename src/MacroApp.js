@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Grid from "@mui/material/Grid";
+import * as mui from "./mui";
 import GoalCalculation from "./GoalCalculation";
 import LogItems from "./LogItems";
-
 import useFormDigitState from "./hooks/useFormDigitState";
 
 function MacroApp() {
@@ -162,7 +157,7 @@ function MacroApp() {
   }, [storedPercentages]);
 
   return (
-    <Paper
+    <mui.Paper
       style={{
         padding: 0,
         margin: 0,
@@ -171,47 +166,51 @@ function MacroApp() {
       }}
       elevation={0}
     >
-      <AppBar color="primary" position="static" style={{ height: "64px" }}>
-        <Toolbar>
-          <Typography color="inherit">Macro Calculator</Typography>
-        </Toolbar>
-      </AppBar>
-      <Grid container>
-        <Grid item xs={11} md={8} sm={4}>
-          <GoalCalculation
-            isInitialLoad={isInitialLoad}
-            setInitialLoad={setInitialLoad}
-            storedPercentages={storedPercentages}
-            handleStoredPercent={handleStoredPercent}
-            storedTotals={storedTotals}
-            handleStoredTotal={handleStoredTotal}
-            remaining={remaining}
-            handleMacro={handleMacro}
-            toggleGoal={toggleGoal}
-            weight={weight}
-            calories={calories}
-            updateCal={updateCal}
-            updateAll={updateAll}
-            updateMacros={updateMacros}
-            adjustedMacros={adjustedMacros}
-            totals={totals}
-            handleChange={handleChange}
-          />
-          <LogItems
-            storedTotals={storedTotals}
-            remaining={remaining}
-            handleMacro={handleMacro}
-            totals={totals}
-            weight={weight}
-            goal={goal}
-            calories={calories}
-            updateCal={updateCal}
-            updateAll={updateAll}
-            updateMacros={updateMacros}
-          />
-        </Grid>
-      </Grid>
-    </Paper>
+      <mui.AppBar color="primary" position="static" style={{ height: "64px" }}>
+        <mui.Toolbar>
+          <mui.Typography color="inherit">Macro Calculator</mui.Typography>
+        </mui.Toolbar>
+      </mui.AppBar>
+      <mui.Grid container>
+        <mui.Grid item xs={11} md={8} sm={4} style={{ margin: "auto" }}>
+          <mui.Paper>
+            <GoalCalculation
+              isInitialLoad={isInitialLoad}
+              setInitialLoad={setInitialLoad}
+              storedPercentages={storedPercentages}
+              handleStoredPercent={handleStoredPercent}
+              storedTotals={storedTotals}
+              handleStoredTotal={handleStoredTotal}
+              remaining={remaining}
+              handleMacro={handleMacro}
+              toggleGoal={toggleGoal}
+              weight={weight}
+              calories={calories}
+              updateCal={updateCal}
+              updateAll={updateAll}
+              updateMacros={updateMacros}
+              adjustedMacros={adjustedMacros}
+              totals={totals}
+              handleChange={handleChange}
+            />
+          </mui.Paper>
+          <mui.Paper>
+            <LogItems
+              storedTotals={storedTotals}
+              remaining={remaining}
+              handleMacro={handleMacro}
+              totals={totals}
+              weight={weight}
+              goal={goal}
+              calories={calories}
+              updateCal={updateCal}
+              updateAll={updateAll}
+              updateMacros={updateMacros}
+            />
+          </mui.Paper>
+        </mui.Grid>
+      </mui.Grid>
+    </mui.Paper>
   );
 }
 export default MacroApp;

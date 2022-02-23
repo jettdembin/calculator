@@ -1,9 +1,8 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
 
 function GoalMacros(props) {
   return (
-    <Paper>
+    <>
       <div>
         <h2>
           {JSON.parse(window.localStorage.getItem("storedTotals")) === null
@@ -59,7 +58,7 @@ function GoalMacros(props) {
         </div>
         <div>{props.storedPercentages[0]["Fatpercent"]}%</div>
       </div>
-    </Paper>
+    </>
   );
 }
 
