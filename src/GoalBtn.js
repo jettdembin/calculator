@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./GoalOptions.css";
 function GoalBtn(props) {
   let id = props.id;
   //depending on first load
@@ -47,6 +47,7 @@ function GoalBtn(props) {
 
   return (
     <button
+      class="Goal-btn"
       onClick={() => {
         props.toggleGoal(id);
         //dependant upon props.id of btn and weight state that is updated by user upon enter of weightform

@@ -1,4 +1,5 @@
 import React from "react";
+import "./GoalOptions.css";
 import GoalBtn from "./GoalBtn";
 
 function GoalOptions(props) {

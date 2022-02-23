@@ -6,7 +6,8 @@ function MealAmount(props) {
   let fat = props.storedTotals[0]["Fat"];
 
   return (
-    <button
+    <div
+      style={{ width: "20px", textAlign: "center" }}
       className="Adjust-selection"
       onClick={() => {
         props.updateMacros(carb, protein, fat, props.id);
@@ -17,7 +18,7 @@ function MealAmount(props) {
       }}
     >
       {props.type}
-    </button>
+    </div>
   );
 }
 

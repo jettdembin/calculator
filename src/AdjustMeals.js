@@ -1,24 +1,32 @@
 import React from "react";
+import "./GoalOptions.css";
 import MealAmount from "./MealAmount";
 
 function AdjustMeals(props) {
   return (
-    <div className="Adjust-cntr">
-      <div className="Adjust-header">
-        <h4>Adjust Meals per Day</h4>
+    <div>
+      <div style={{ textAlign: "center" }}>
+        <h4>Show Total Macros Needed per Meal</h4>
       </div>
-      <nav className="Adjust-nav-cntr">
-        <ul className="Adjust-nav">
-          <li>
+      <nav>
+        <ul
+          style={{
+            display: "flex",
+            listStyleType: "none",
+            justifyContent: "center",
+            paddingBottom: "1rem",
+          }}
+        >
+          <li class="Goal-btn" style={{ margin: "0 .5rem" }}>
             <MealAmount {...props} id={1} type="All" />
           </li>
-          <li>
+          <li class="Goal-btn" style={{ margin: "0 .5rem" }}>
             <MealAmount {...props} id={3} type="3" />
           </li>
-          <li>
+          <li class="Goal-btn" style={{ margin: "0 .5rem" }}>
             <MealAmount {...props} id={4} type="4" />
           </li>
-          <li>
+          <li class="Goal-btn" style={{ margin: "0 .5rem" }}>
             <MealAmount {...props} id={5} type="5" />
           </li>
         </ul>

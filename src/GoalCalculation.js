@@ -14,7 +14,7 @@ function GoalCalculation(props) {
     setFirstAdjustment(!firstAdjustment);
   };
   return (
-    <div className="GoalCalculation">
+    <div className="GoalCalculation" style={{ padding: "2rem" }}>
       <WeightForm {...props} />
       <GoalOptions
         {...props}
