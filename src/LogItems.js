@@ -9,7 +9,7 @@ function LogItems(props) {
   const { foods, addFood, removeFood, allowEdit } = useFoodState(initialFoods);
 
   return (
-    <>
+    <div style={{ padding: "2rem", marginTop: "1rem" }}>
       <FoodForm {...props} addFood={addFood} />
       <FoodList
         {...props}
@@ -17,7 +17,7 @@ function LogItems(props) {
         removeFood={removeFood}
         allowEdit={allowEdit}
       />
-    </>
+    </div>
   );
 }
 

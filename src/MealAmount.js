@@ -10,10 +10,14 @@ function MealAmount(props) {
       style={{ width: "20px", textAlign: "center" }}
       className="Adjust-selection"
       onClick={() => {
-        props.updateMacros(carb, protein, fat, props.id);
-        if (props.firstAdjustment === false) {
-          props.toggleIsFirstAdjustment();
-          props.toggleIsAdjusted();
+        if (props.weight) {
+          props.updateMacros(carb, protein, fat, props.id);
+          if (props.firstAdjustment === false) {
+            props.toggleIsFirstAdjustment();
+            props.toggleIsAdjusted();
+          }
+        } else {
+          alert("Please input weight");
         }
       }}
     >

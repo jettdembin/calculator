@@ -23,7 +23,7 @@ function GoalMacros(props) {
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
           props.isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"]
-            : props.adjustedMacros[0].carbAdjusted
+            : props.isAdjusted
             ? props.adjustedMacros[0].carbAdjusted
             : props.storedTotals[0]["Carb"]}
           g
@@ -38,7 +38,7 @@ function GoalMacros(props) {
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                 "Protein"
               ]
-            : props.adjustedMacros[0].proteinAdjusted
+            : props.isAdjusted
             ? props.adjustedMacros[0].proteinAdjusted
             : props.storedTotals[0]["Protein"]}
           g
@@ -51,7 +51,7 @@ function GoalMacros(props) {
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
           props.isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"]
-            : props.adjustedMacros[0].fatAdjusted
+            : props.isAdjusted
             ? props.adjustedMacros[0].fatAdjusted
             : props.storedTotals[0]["Fat"]}
           g
