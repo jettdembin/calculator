@@ -87,6 +87,7 @@ function Food(props) {
                   props.handleMacro(remainingFat + Number(food.fat), "Fat");
                 }
                 props.removeFood(food.id);
+                props.toggleColor(food.carb, food.protein, food.fat, 3);
               }}
               aria-label="Delete"
             >
