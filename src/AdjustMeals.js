@@ -6,7 +6,8 @@ function AdjustMeals(props) {
   return (
     <div>
       <div style={{ textAlign: "center" }}>
-        <h4>Show Total Macros Needed per Meal</h4>
+        <h4>Show Total Macros</h4>
+        <h6 style={{ marginTop: "-1rem" }}>(Per Meal)</h6>
       </div>
       <nav>
         <ul

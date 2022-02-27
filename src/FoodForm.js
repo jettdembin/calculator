@@ -58,7 +58,6 @@ function FoodForm(props) {
           resetFat();
         }}
       >
-        {value}
         <TextField
           value={value}
           onChange={handleFoodChange}
@@ -66,23 +65,36 @@ function FoodForm(props) {
           label="Food"
           fullWidth
         />
-        {carb}
-        <TextField
-          value={carb}
-          onChange={handleProteinChange}
-          label="Carbs(grams)"
-        />
-        {protein}
-        <TextField
-          value={protein}
-          onChange={handleCarbChange}
-          label="Protein(grams)"
-        />
-        {fat}
-        <TextField value={fat} onChange={handleFatChange} label="Fat(grams)" />
-        <button class="Goal-btn" type="submit">
-          Add Food
-        </button>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div>
+            <TextField
+              value={carb}
+              onChange={handleProteinChange}
+              label="Carbs(grams)"
+            />
+          </div>
+          <div>
+            <TextField
+              value={protein}
+              onChange={handleCarbChange}
+              label="Protein(grams)"
+            />
+          </div>
+          <div>
+            <TextField
+              value={fat}
+              onChange={handleFatChange}
+              label="Fat(grams)"
+            />
+          </div>
+        </div>
+        <div
+          style={{ marginTop: "1rem", display: "flex", justifyContent: "end" }}
+        >
+          <button class="Goal-btn" type="submit">
+            Add Food
+          </button>
+        </div>
       </form>
     </div>
   );

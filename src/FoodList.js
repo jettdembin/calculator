@@ -23,14 +23,12 @@ function FoodList(props) {
       <div
         style={{
           display: "flex",
-          border: "1px solid red",
         }}
       >
         <div
           style={{
             display: "flex",
             margin: "auto",
-            border: "1px solid blue",
           }}
         >
           <div style={{ display: "flex", marginLeft: "1rem" }}>
@@ -53,14 +51,12 @@ function FoodList(props) {
     <div
       style={{
         display: "flex",
-        border: "1px solid red",
       }}
     >
       <div
         style={{
           display: "flex",
           margin: "auto",
-          border: "1px solid blue",
         }}
       >
         <div style={{ display: "flex", marginLeft: "1rem" }}>
