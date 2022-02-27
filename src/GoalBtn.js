@@ -2,48 +2,76 @@ import React from "react";
 import "./GoalOptions.css";
 function GoalBtn(props) {
   let id = props.id;
-  //depending on first load
-  let calories = () => {
-    if (window.localStorage.getItem("storedTotals") !== null) {
-      return props.id * props.storedTotals[0]["Weight"];
-    } else {
-      return props.id * Number(props.weight);
-    }
-  };
 
   let carb = Math.round(
     (props.id * Number(props.weight) * (props.percentCarb / 10)) / 4
   );
-  let carbLoaded = Math.round(
-    (props.id *
-      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-      (props.percentCarb / 10)) /
-      4
-  );
+  let carbLoaded = () => {
+    if (
+      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] ===
+      null
+    ) {
+      return 0;
+    } else {
+      Math.round(
+        (props.id *
+          JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
+          (props.percentCarb / 10)) /
+          4
+      );
+    }
+  };
 
   let protein = Math.round(
     (props.id * Number(props.weight) * (props.percentProtein / 10)) / 4
   );
-  let proteinLoaded = Math.round(
-    (props.id *
-      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-      (props.percentProtein / 10)) /
-      4
-  );
+  let proteinLoaded = () => {
+    if (
+      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] ===
+      null
+    ) {
+      return 0;
+    } else {
+      Math.round(
+        (props.id *
+          JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
+          (props.percentProtein / 10)) /
+          4
+      );
+    }
+  };
 
   let fat = Math.round(
     (props.id * Number(props.weight) * (props.percentFat / 10)) / 9
   );
-  let fatLoaded = Math.round(
-    (props.id *
-      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-      (props.percentFat / 10)) /
-      9
-  );
+  let fatLoaded = () => {
+    if (
+      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] ===
+      null
+    ) {
+      return 0;
+    } else {
+      Math.round(
+        (props.id *
+          JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
+          (props.percentFat / 10)) /
+          4
+      );
+    }
+  };
 
-  let weightLoaded = JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-    "Weight"
-  ];
+  let weightLoaded = () => {
+    if (
+      JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] ===
+      null
+    ) {
+      return 0;
+    } else {
+      return JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+        "Weight"
+      ];
+    }
+  };
 
   return (
     <button
