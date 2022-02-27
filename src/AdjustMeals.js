@@ -18,16 +18,16 @@ function AdjustMeals(props) {
             paddingBottom: "1rem",
           }}
         >
-          <li class="Goal-btn" style={{ margin: "0 .5rem" }}>
+          <li className="Goal-btn" style={{ margin: "0 .5rem" }}>
             <MealAmount {...props} id={1} type="All" />
           </li>
-          <li class="Goal-btn" style={{ margin: "0 .5rem" }}>
+          <li className="Goal-btn" style={{ margin: "0 .5rem" }}>
             <MealAmount {...props} id={3} type="3" />
           </li>
-          <li class="Goal-btn" style={{ margin: "0 .5rem" }}>
+          <li className="Goal-btn" style={{ margin: "0 .5rem" }}>
             <MealAmount {...props} id={4} type="4" />
           </li>
-          <li class="Goal-btn" style={{ margin: "0 .5rem" }}>
+          <li className="Goal-btn" style={{ margin: "0 .5rem" }}>
             <MealAmount {...props} id={5} type="5" />
           </li>
         </ul>

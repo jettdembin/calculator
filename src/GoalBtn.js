@@ -75,7 +75,7 @@ function GoalBtn(props) {
 
   return (
     <button
-      class="Goal-btn"
+      className="Goal-btn"
       onClick={() => {
         props.toggleGoal(id);
         //dependant upon props.id of btn and weight state that is updated by user upon enter of weightform
