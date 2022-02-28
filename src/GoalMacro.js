@@ -19,7 +19,7 @@ function GoalMacros(props) {
               ] *
               JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Goal"]
             : props.isAdjusted
-            ? props.adjustedMacros[0].carbAdjusted
+            ? props.adjustedMacros[0].caloriesAdjusted
             : props.storedTotals[0]["Weight"] * props.storedTotals[0]["Goal"]}
         </h2>
       </div>

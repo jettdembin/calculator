@@ -106,7 +106,6 @@ function MacroApp() {
   const updateMacros = (carb, protein, fat, meals) => {
     adjustMacros([
       {
-        ...adjustedMacros,
         carbAdjusted: Math.round(carb / meals),
         proteinAdjusted: Math.round(protein / meals),
         fatAdjusted: Math.round(fat / meals),
