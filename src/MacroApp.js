@@ -71,7 +71,6 @@ function MacroApp() {
   const [weight, handleChange] = useFormDigitState("");
 
   //unused piece of state
-  const [goal, setGoal] = useState("");
   const [calories, handleCalculation] = useState(0);
   const [adjustedMacros, adjustMacros] = useState(adjustments);
   const [totals, setTotals] = useState(initialTotalsMacros);
@@ -83,21 +82,21 @@ function MacroApp() {
 
   //Set State Functions
   //1
-  const toggleGoal = (goal) => {
-    switch (goal) {
-      case 12:
-        setGoal("Cut");
-        break;
-      case 15:
-        setGoal("Maintain");
-        break;
-      case 18:
-        setGoal("Bulk");
-        break;
-      default:
-        break;
-    }
-  };
+  // const toggleGoal = (goal) => {
+  //   switch (goal) {
+  //     case 12:
+  //       setGoal("Cut");
+  //       break;
+  //     case 15:
+  //       setGoal("Maintain");
+  //       break;
+  //     case 18:
+  //       setGoal("Bulk");
+  //       break;
+  //     default:
+  //       break;
+  //   }
+  // };
 
   //2
   const updateCal = (id) => {
@@ -198,7 +197,6 @@ function MacroApp() {
               handleStoredTotal={handleStoredTotal}
               remaining={remaining}
               handleMacro={handleMacro}
-              toggleGoal={toggleGoal}
               weight={weight}
               calories={calories}
               updateCal={updateCal}
@@ -216,7 +214,6 @@ function MacroApp() {
               handleMacro={handleMacro}
               totals={totals}
               weight={weight}
-              goal={goal}
               calories={calories}
               updateCal={updateCal}
               updateAll={updateAll}

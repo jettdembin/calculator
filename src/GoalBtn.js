@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./GoalOptions.css";
+import { GoalContext } from "./contexts/GoalContext";
+
 function GoalBtn(props) {
+  const { toggleGoal } = useContext(GoalContext);
   let id = props.id;
 
   let carb = Math.round(
@@ -82,7 +85,7 @@ function GoalBtn(props) {
     <button
       className="Goal-btn"
       onClick={() => {
-        props.toggleGoal(id);
+        toggleGoal(id);
         //dependant upon props.id of btn and weight state that is updated by user upon enter of weightform
         props.updateCal(id);
 
