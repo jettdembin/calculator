@@ -73,6 +73,11 @@ function GoalBtn(props) {
     }
   };
 
+  //percents loaded from storage or not
+  let percentCarb = props.percentCarb * 10;
+  let percentProtein = props.percentProtein * 10;
+  let percentFat = props.percentProtein * 10;
+
   return (
     <button
       className="Goal-btn"
@@ -89,12 +94,19 @@ function GoalBtn(props) {
           props.toggleIsFirstAdjustment();
           props.toggleIsAdjusted();
         }
+
+        //set storage for percents based on btn id prop
+        props.handleStoredPercent(percentCarb, "Carbpercent");
+        props.handleStoredPercent(percentProtein, "Proteinpercent");
+        props.handleStoredPercent(percentFat, "Fatpercent");
+
         //set storage for totals on btn click
         if (props.isInitialLoad) {
           if (
             window.localStorage.getItem("storedTotals") !== null &&
             !props.weight
           ) {
+            console.log("in 1st, storedtotal");
             props.handleMacro(carbLoaded, "Carb");
             props.handleMacro(proteinLoaded, "Protein");
             props.handleMacro(fatLoaded, "Fat");
@@ -104,15 +116,10 @@ function GoalBtn(props) {
             props.handleStoredTotal(fatLoaded, "Fat");
             props.handleStoredTotal(id, "Goal");
             props.handleStoredTotal(weightLoaded, "Weight");
-            props.handleStoredPercent(props.percentCarb * 10, "Carbpercent");
-            props.handleStoredPercent(
-              props.percentProtein * 10,
-              "Proteinpercent"
-            );
-            props.handleStoredPercent(props.percentFat * 10, "Fatpercent");
             props.setInitialLoad(false);
           }
           if (props.weight) {
+            console.log("in 3rd, props.weight");
             props.handleMacro(carb, "Carb");
             props.handleMacro(protein, "Protein");
             props.handleMacro(fat, "Fat");
@@ -128,6 +135,7 @@ function GoalBtn(props) {
           if (props.isInitialLoad === false && !props.weight) {
             alert("Please re-enter weight");
           } else {
+            console.log("in last, else");
             props.handleMacro(carb, "Carb");
             props.handleMacro(protein, "Protein");
             props.handleMacro(fat, "Fat");
