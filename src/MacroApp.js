@@ -5,6 +5,8 @@ import LogItems from "./LogItems";
 import useFormDigitState from "./hooks/useFormDigitState";
 
 function MacroApp() {
+  //CONTEXT API REFACTOR BRANCH
+
   const adjustments = [
     {
       carbAdjusted: 0,
