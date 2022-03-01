@@ -5,15 +5,29 @@ function MealAmount(props) {
   let protein = props.storedTotals[0]["Protein"];
   let fat = props.storedTotals[0]["Fat"];
 
-  let storedCarb = JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-    "Carb"
-  ];
-  let storedProtein = JSON.parse(
-    window.localStorage.getItem("storedTotals")
-  )[0]["Protein"];
-  let storedFat = JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-    "Fat"
-  ];
+  let storedCarb = () => {
+    if (window.localStorage.getItem("storedTotals") !== null) {
+      return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"];
+    } else {
+      return 0;
+    }
+  };
+  let storedProtein = () => {
+    if (window.localStorage.getItem("storedTotals") !== null) {
+      return JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+        "Protein"
+      ];
+    } else {
+      return 0;
+    }
+  };
+  let storedFat = () => {
+    if (window.localStorage.getItem("storedTotals") !== null) {
+      return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"];
+    } else {
+      return 0;
+    }
+  };
 
   return (
     <div

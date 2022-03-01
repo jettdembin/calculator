@@ -80,24 +80,6 @@ function MacroApp() {
     initialPercentagesOption
   );
 
-  //Set State Functions
-  //1
-  // const toggleGoal = (goal) => {
-  //   switch (goal) {
-  //     case 12:
-  //       setGoal("Cut");
-  //       break;
-  //     case 15:
-  //       setGoal("Maintain");
-  //       break;
-  //     case 18:
-  //       setGoal("Bulk");
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // };
-
   //2
   const updateCal = (id) => {
     handleCalculation(Number(weight) * id);
