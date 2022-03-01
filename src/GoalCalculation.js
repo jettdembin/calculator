@@ -4,21 +4,19 @@ import GoalOptions from "./GoalOptions";
 import GoalMacro from "./GoalMacro";
 import AdjustMeals from "./AdjustMeals";
 
-import { AdjustmentProvider } from "./contexts/StateContext";
+import { AdjustmentProvider } from "./contexts/AdjustmentContext";
 
 function GoalCalculation() {
   return (
-    <div
+    <AdjustmentProvider
       className="GoalCalculation"
       style={{ padding: "2rem", marginTop: "1rem" }}
     >
       <WeightForm />
-      <AdjustmentProvider>
-        <GoalOptions />
-        <GoalMacro />
-        <AdjustMeals />
-      </AdjustmentProvider>
-    </div>
+      <GoalOptions />
+      <GoalMacro />
+      <AdjustMeals />
+    </AdjustmentProvider>
   );
 }
 

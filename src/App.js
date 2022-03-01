@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import MacroApp from "./MacroApp";
-import { StateProvider } from "./contexts/GoalContext";
+import { StateProvider } from "./contexts/StateContext";
 
 function App() {
   return (

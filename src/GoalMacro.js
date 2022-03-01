@@ -1,37 +1,43 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StateContext } from "./contexts/StateContext";
+import { AdjustmentContext } from "./contexts/AdjustmentContext";
 
-function GoalMacros(props) {
+function GoalMacros() {
+  const { totals, isInitialLoad, storedTotals, storedPercentages } =
+    useContext(StateContext);
+  const { adjustedMacros, isAdjusted } = useContext(AdjustmentContext);
+
   return (
     <>
       <div>
         <h2 style={{ textAlign: "center" }}>
           {JSON.parse(window.localStorage.getItem("storedTotals")) === null
             ? `Calories per Day`
-            : props.totals[0].carb > props.adjustedMacros[0].carbAdjusted
+            : totals[0].carb > adjustedMacros[0].carbAdjusted
             ? `Calories per Meal`
             : `Calories per Day`}
         </h2>
         <h2 style={{ textAlign: "center" }}>
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
-          props.isInitialLoad
+          isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                 "Weight"
               ] *
               JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Goal"]
-            : props.isAdjusted
-            ? props.adjustedMacros[0].caloriesAdjusted
-            : props.storedTotals[0]["Weight"] * props.storedTotals[0]["Goal"]}
+            : isAdjusted
+            ? adjustedMacros[0].caloriesAdjusted
+            : storedTotals[0]["Weight"] * storedTotals[0]["Goal"]}
         </h2>
       </div>
       <div className="Macro-totals" style={{ textAlign: "center" }}>
         <h4>Carbohydrates</h4>
         <div>
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
-          props.isInitialLoad
+          isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"]
-            : props.isAdjusted
-            ? props.adjustedMacros[0].carbAdjusted
-            : props.storedTotals[0]["Carb"]}
+            : isAdjusted
+            ? adjustedMacros[0].carbAdjusted
+            : storedTotals[0]["Carb"]}
           g
         </div>
         <div>
@@ -39,7 +45,7 @@ function GoalMacros(props) {
             ? JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
                 "Carbpercent"
               ]
-            : props.storedPercentages[0]["Carbpercent"]}
+            : storedPercentages[0]["Carbpercent"]}
           %
         </div>
       </div>
@@ -47,13 +53,13 @@ function GoalMacros(props) {
         <h4>Protein</h4>
         <div>
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
-          props.isInitialLoad
+          isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                 "Protein"
               ]
-            : props.isAdjusted
-            ? props.adjustedMacros[0].proteinAdjusted
-            : props.storedTotals[0]["Protein"]}
+            : isAdjusted
+            ? adjustedMacros[0].proteinAdjusted
+            : storedTotals[0]["Protein"]}
           g
         </div>
         <div>
@@ -61,7 +67,7 @@ function GoalMacros(props) {
             ? JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
                 "Proteinpercent"
               ]
-            : props.storedPercentages[0]["Proteinpercent"]}
+            : storedPercentages[0]["Proteinpercent"]}
           %
         </div>
       </div>
@@ -69,11 +75,11 @@ function GoalMacros(props) {
         <h4>Fat</h4>
         <div>
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
-          props.isInitialLoad
+          isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"]
-            : props.isAdjusted
-            ? props.adjustedMacros[0].fatAdjusted
-            : props.storedTotals[0]["Fat"]}
+            : isAdjusted
+            ? adjustedMacros[0].fatAdjusted
+            : storedTotals[0]["Fat"]}
           g
         </div>
         <div>
@@ -81,7 +87,7 @@ function GoalMacros(props) {
             ? JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
                 "Fatpercent"
               ]
-            : props.storedPercentages[0]["Fatpercent"]}
+            : storedPercentages[0]["Fatpercent"]}
           %
         </div>
       </div>
