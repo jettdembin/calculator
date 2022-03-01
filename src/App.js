@@ -1,14 +1,14 @@
 import React from "react";
 import "./App.css";
 import MacroApp from "./MacroApp";
-import { GoalProvider } from "./contexts/GoalContext";
+import { StateProvider } from "./contexts/GoalContext";
 
 function App() {
   return (
     <div className="App">
-      <GoalProvider>
+      <StateProvider>
         <MacroApp />
-      </GoalProvider>
+      </StateProvider>
     </div>
   );
 }

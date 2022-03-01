@@ -2,7 +2,7 @@ import React from "react";
 import "./GoalOptions.css";
 import MealAmount from "./MealAmount";
 
-function AdjustMeals(props) {
+function AdjustMeals() {
   return (
     <div>
       <div style={{ textAlign: "center" }}>
@@ -19,16 +19,16 @@ function AdjustMeals(props) {
           }}
         >
           <li className="Goal-btn" style={{ margin: "0 .5rem" }}>
-            <MealAmount {...props} id={1} type="All" />
+            <MealAmount id={1} type="All" />
           </li>
           <li className="Goal-btn" style={{ margin: "0 .5rem" }}>
-            <MealAmount {...props} id={3} type="3" />
+            <MealAmount id={3} type="3" />
           </li>
           <li className="Goal-btn" style={{ margin: "0 .5rem" }}>
-            <MealAmount {...props} id={4} type="4" />
+            <MealAmount id={4} type="4" />
           </li>
           <li className="Goal-btn" style={{ margin: "0 .5rem" }}>
-            <MealAmount {...props} id={5} type="5" />
+            <MealAmount id={5} type="5" />
           </li>
         </ul>
       </nav>

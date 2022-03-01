@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "./GoalOptions.css";
-import { GoalContext } from "./contexts/GoalContext";
+import { StateContext } from "./contexts/StateContext";
 
 function GoalBtn(props) {
-  const { toggleGoal } = useContext(GoalContext);
+  const { toggleGoal } = useContext(StateContext);
   let id = props.id;
 
   let carb = Math.round(

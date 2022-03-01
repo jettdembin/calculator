@@ -1,17 +1,12 @@
-import React, { useState } from "react";
+import React, from "react";
 import "./GoalOptions.css";
 import TextField from "@mui/material/TextField";
-import useFormState from "./hooks/useFormState";
-import useFormDigitState from "./hooks/useFormDigitState";
+import {FoodProvider} from "./contexts/FoodContext";
 
 function FoodForm(props) {
-  const [value, handleFoodChange, reset] = useFormState("");
-  const [carb, handleProteinChange, resetProtein] = useFormDigitState("");
-  const [protein, handleCarbChange, resetCarb] = useFormDigitState("");
-  const [fat, handleFatChange, resetFat] = useFormDigitState("");
 
   return (
-    <div>
+    <FoodProvider>
       <h2 style={{ textAlign: "center" }}>Remaining Macros for the Day</h2>
       <div style={{ display: "flex" }}>
         <div
@@ -96,7 +91,7 @@ function FoodForm(props) {
           </button>
         </div>
       </form>
-    </div>
+    </FoodProvider>
   );
 }
 
