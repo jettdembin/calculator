@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./GoalOptions.css";
 import TextField from "@mui/material/TextField";
 import useFormState from "./hooks/useFormState";
