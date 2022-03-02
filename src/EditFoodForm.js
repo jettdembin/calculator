@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import TextField from "@mui/material/TextField";
 import useFormState from "./hooks/useFormState";
 
-function EditFoodForm({ allowEdit, id, item, toggleEdit }) {
+import { StateContext } from './contexts/StateContext';
+
+function EditFoodForm({ id, item, toggleEdit }) {
   const [value, handleChange, reset] = useFormState(item);
+  const { allowEdit } = useContext(StateContext)
 
   return (
     <form

@@ -2,7 +2,7 @@ import React from "react";
 import "./GoalOptions.css";
 import MealAmount from "./MealAmount";
 
-function AdjustMeals() {
+function AdjustMeals(props) {
   return (
     <div>
       <div style={{ textAlign: "center" }}>

@@ -2,7 +2,7 @@ import React from "react";
 import "./GoalOptions.css";
 import GoalBtn from "./GoalBtn";
 
-function GoalOptions() {
+function GoalOptions(props) {
   return (
     <section className="Goal-cntr">
       <div className="Goal-wrapper">

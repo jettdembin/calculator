@@ -6,12 +6,12 @@ import AdjustMeals from "./AdjustMeals";
 
 import { AdjustmentProvider } from "./contexts/AdjustmentContext";
 
-function GoalCalculation() {
+function GoalCalculation(props) {
+  // className="GoalCalculation"
+  //     style={{ padding: "2rem", marginTop: "1rem" }}
+
   return (
-    <AdjustmentProvider
-      className="GoalCalculation"
-      style={{ padding: "2rem", marginTop: "1rem" }}
-    >
+    <AdjustmentProvider>
       <WeightForm />
       <GoalOptions />
       <GoalMacro />

@@ -3,7 +3,9 @@ import * as mui from "./mui";
 import GoalCalculation from "./GoalCalculation";
 import LogItems from "./LogItems";
 
-function MacroApp() {
+import { StateProvider } from "./contexts/StateContext";
+
+function MacroApp(props) {
   return (
     <mui.Paper
       style={{
@@ -22,10 +24,14 @@ function MacroApp() {
       <mui.Grid container>
         <mui.Grid item xs={11} md={8} sm={4} style={{ margin: "auto" }}>
           <mui.Paper>
-            <GoalCalculation />
+            <StateProvider>
+              <GoalCalculation />
+            </StateProvider>
           </mui.Paper>
           <mui.Paper>
-            <LogItems />
+            <StateProvider>
+              <LogItems />
+            </StateProvider>
           </mui.Paper>
         </mui.Grid>
       </mui.Grid>

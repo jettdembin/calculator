@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StateContext } from "./contexts/StateContext";
 import { AdjustmentContext } from "./contexts/AdjustmentContext";
 
-function GoalMacros() {
+function GoalMacros(props) {
   const { totals, isInitialLoad, storedTotals, storedPercentages } =
     useContext(StateContext);
   const { adjustedMacros, isAdjusted } = useContext(AdjustmentContext);
