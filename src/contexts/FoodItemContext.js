@@ -7,8 +7,8 @@ export function FoodItemProvider(props) {
   const initialFoods = [];
   const { foods, addFood, removeFood, allowEdit } = useFoodState(initialFoods);
   return (
-    <FoodItemProvider value={{ foods, addFood, removeFood, allowEdit }}>
+    <FoodItemContext.Provider value={{ foods, addFood, removeFood, allowEdit }}>
       {props.children}
-    </FoodItemProvider>
+    </FoodItemContext.Provider>
   );
 }

@@ -11,7 +11,7 @@ export function FoodFormProvider(props) {
   const [fat, handleFatChange, resetFat] = useFormDigitState("");
 
   return (
-    <FoodFormProvider
+    <FoodFormContext.Provider
       value={{
         value,
         carb,
@@ -28,6 +28,6 @@ export function FoodFormProvider(props) {
       }}
     >
       {props.children}
-    </FoodFormProvider>
+    </FoodFormContext.Provider>
   );
 }

@@ -65,10 +65,10 @@ export function FoodColorProvider(props) {
   };
 
   return (
-    <FoodColorProvider
+    <FoodColorContext.Provider
       value={{ carbColor, proteinColor, fatColor, toggleColor }}
     >
       {props.children}
-    </FoodColorProvider>
+    </FoodColorContext.Provider>
   );
 }
