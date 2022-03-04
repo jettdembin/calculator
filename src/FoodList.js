@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import * as mui from "./mui";
 import Food from "./Food";
 
-function FoodList(props) {
-  return props.foods.length ? (
+import { FoodItemContext } from "./contexts/FoodItemContext";
+
+function FoodList() {
+  const { foods } = useContext(FoodItemContext)
+  return foods.length ? (
     <>
       <div
         style={{
@@ -24,10 +27,10 @@ function FoodList(props) {
         </div>
       </div>
       <mui.List>
-        {props.foods.map((food, i) => (
+        {foods.map((food, i) => (
           <>
             <Food food={food} id={food.id} key={food.id}></Food>
-            {i < props.foods.length - 1 && <mui.Divider />}
+            {i < foods.length - 1 && <mui.Divider />}
           </>
         ))}
       </mui.List>

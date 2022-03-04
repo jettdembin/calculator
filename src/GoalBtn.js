@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import "./GoalOptions.css";
 import { StateContext } from "./contexts/StateContext";
-import { AdjustmentContext } from "./contexts/StateContext";
+import { AdjustmentContext } from "./contexts/AdjustmentContext";
 
 function GoalBtn(props) {
   const {

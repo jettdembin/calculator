@@ -5,7 +5,8 @@ import { AdjustmentContext } from "./contexts/AdjustmentContext";
 function GoalMacros(props) {
   const { totals, isInitialLoad, storedTotals, storedPercentages } =
     useContext(StateContext);
-  const { adjustedMacros, isAdjusted } = useContext(AdjustmentContext);
+  const { isAdjusted } = useContext(AdjustmentContext);
+  const { adjustedMacros } = useContext(StateContext);
 
   return (
     <>
