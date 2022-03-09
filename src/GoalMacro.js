@@ -19,7 +19,7 @@ function GoalMacros(props) {
             : `Calories per Day`}
         </h2>
         <h2 style={{ textAlign: "center" }}>
-          {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
+          {window.localStorage.getItem("storedTotals") !== null &&
           isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                 "Weight"
@@ -33,7 +33,7 @@ function GoalMacros(props) {
       <div className="Macro-totals" style={{ textAlign: "center" }}>
         <h4>Carbohydrates</h4>
         <div>
-          {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
+          {window.localStorage.getItem("storedTotals") !== null &&
           isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"]
             : isAdjusted
@@ -54,7 +54,7 @@ function GoalMacros(props) {
       <div className="Macro-totals" style={{ textAlign: "center" }}>
         <h4>Protein</h4>
         <div>
-          {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
+          {window.localStorage.getItem("storedTotals") !== null &&
           isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                 "Protein"
@@ -77,7 +77,7 @@ function GoalMacros(props) {
       <div className="Macro-totals" style={{ textAlign: "center" }}>
         <h4>Fat</h4>
         <div>
-          {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
+          {window.localStorage.getItem("storedTotals") !== null &&
           isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"]
             : isAdjusted
@@ -86,7 +86,7 @@ function GoalMacros(props) {
           g
         </div>
         <div>
-          {JSON.parse(window.localStorage.getItem("storedPercentages")) !== null &&
+          {window.localStorage.getItem("storedPercentages") !== null &&
           props.isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedPercentages"))[0][
                 "Fatpercent"

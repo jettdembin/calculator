@@ -60,7 +60,7 @@ function GoalBtn(props) {
   };
 
   let fat = Math.round(
-    (props.id * Number(props.weight) * (props.percentFat / 10)) / 9
+    (props.id * Number(weight) * (props.percentFat / 10)) / 9
   );
   let fatLoaded = () => {
     if (
@@ -73,7 +73,7 @@ function GoalBtn(props) {
         (props.id *
           JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
           (props.percentFat / 10)) /
-          4
+          9
       );
     }
   };
