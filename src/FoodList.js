@@ -2,16 +2,11 @@ import React, { useContext } from "react";
 import * as mui from "./mui";
 import Food from "./Food";
 
-<<<<<<< HEAD
-function FoodList(props) {
-  return props.foods.length ? (
-=======
 import { FoodItemContext } from "./contexts/FoodItemContext";
 
 function FoodList() {
   const { foods } = useContext(FoodItemContext)
   return foods.length ? (
->>>>>>> contextAPI
     <>
       <div
         style={{

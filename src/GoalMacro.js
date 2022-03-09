@@ -19,17 +19,11 @@ function GoalMacros(props) {
             : `Calories per Day`}
         </h2>
         <h2 style={{ textAlign: "center" }}>
-<<<<<<< HEAD
-          {window.localStorage.getItem("storedTotals") !== null &&
-           props.isInitialLoad
-            ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-=======
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
           isInitialLoad
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                 "Weight"
               ] *
->>>>>>> contextAPI
               JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Goal"]
             : isAdjusted
             ? adjustedMacros[0].caloriesAdjusted
@@ -39,13 +33,8 @@ function GoalMacros(props) {
       <div className="Macro-totals" style={{ textAlign: "center" }}>
         <h4>Carbohydrates</h4>
         <div>
-<<<<<<< HEAD
-          {window.localStorage.getItem("storedTotals") !== null &&
-          props.isInitialLoad
-=======
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
           isInitialLoad
->>>>>>> contextAPI
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"]
             : isAdjusted
             ? adjustedMacros[0].carbAdjusted
@@ -65,13 +54,8 @@ function GoalMacros(props) {
       <div className="Macro-totals" style={{ textAlign: "center" }}>
         <h4>Protein</h4>
         <div>
-<<<<<<< HEAD
-          {window.localStorage.getItem("storedTotals") !== null &&
-          props.isInitialLoad
-=======
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
           isInitialLoad
->>>>>>> contextAPI
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                 "Protein"
               ]
@@ -93,13 +77,8 @@ function GoalMacros(props) {
       <div className="Macro-totals" style={{ textAlign: "center" }}>
         <h4>Fat</h4>
         <div>
-<<<<<<< HEAD
-          {window.localStorage.getItem("storedTotals") !== null &&
-          props.isInitialLoad
-=======
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
           isInitialLoad
->>>>>>> contextAPI
             ? JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"]
             : isAdjusted
             ? adjustedMacros[0].fatAdjusted

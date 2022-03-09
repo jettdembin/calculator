@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React from "react";
-=======
 import React, { useContext } from "react";
->>>>>>> contextAPI
 import "./GoalOptions.css";
 import TextField from "@mui/material/TextField";
 

@@ -7,19 +7,6 @@ function MealAmount(props) {
   const { firstAdjustment, toggleIsFirstAdjustment, toggleIsAdjusted } =
     useContext(AdjustmentContext);
 
-<<<<<<< HEAD
-  let storedCarb = () => {
-    if (window.localStorage.getItem("storedTotals")) {
-      return JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-        "Carb"
-      ];
-    } else {
-      return 0
-    }
-  }
-  let storedProtein = () => {
-    if (window.localStorage.getItem("storedTotals")) {
-=======
   let carb = storedTotals[0]["Carb"];
   let protein = storedTotals[0]["Protein"];
   let fat = storedTotals[0]["Fat"];
@@ -33,25 +20,10 @@ function MealAmount(props) {
   };
   let storedProtein = () => {
     if (window.localStorage.getItem("storedTotals") !== null) {
->>>>>>> contextAPI
       return JSON.parse(window.localStorage.getItem("storedTotals"))[0][
         "Protein"
       ];
     } else {
-<<<<<<< HEAD
-      return 0
-    }
-  }
-  let storedFat = () => {
-    if (window.localStorage.getItem("storedTotals")) {
-      return JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-        "Fat"
-      ];
-    } else {
-      return 0
-    }
-  }
-=======
       return 0;
     }
   };
@@ -62,7 +34,6 @@ function MealAmount(props) {
       return 0;
     }
   };
->>>>>>> contextAPI
 
   return (
     <div
