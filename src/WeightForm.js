@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { StateContext } from "./contexts/StateContext";
 
-function WeightForm(props) {
+function WeightForm() {
+  const { weight, handleChange } = useContext(StateContext);
   return (
     <div
       style={{
@@ -15,8 +17,8 @@ function WeightForm(props) {
           style={{ paddingLeft: ".5rem" }}
           type="text"
           placeholder="Pounds"
-          value={props.weight}
-          onChange={props.handleChange}
+          value={weight}
+          onChange={handleChange}
         />
       </label>
     </div>

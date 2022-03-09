@@ -23,4 +23,8 @@ export function AdjustmentProvider(props) {
       {props.children}
     </AdjustmentContext.Provider>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> contextAPI

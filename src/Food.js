@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import * as mui from "./mui";
 import EditFoodForm from "./EditFoodForm";
+
+import { StateContext } from './contexts/StateContext';
+import { FoodColorContext } from './contexts/FoodColorContext';
 
 function Food(props) {
   const food = props.food;
@@ -8,17 +11,19 @@ function Food(props) {
   const toggleEdit = () => {
     setIsEditing(!isEditing);
   };
-  let remainingCarb = props.remaining[0].Carb;
-  let remainingProtein = props.remaining[0].Protein;
-  let remainingFat = props.remaining[0].Fat;
+
+  const { remaining, handleMacro, storedTotals, removeFood } = useContext(StateContext);
+  const { toggleColor } = useContext(FoodColorContext);
+
+  let remainingCarb = remaining[0].Carb;
+  let remainingProtein = remaining[0].Protein;
+  let remainingFat = remaining[0].Fat;
 
   return (
     <mui.ListItem style={{ height: "64px" }}>
       {isEditing ? (
         <>
           <EditFoodForm
-            {...props}
-            allowEdit={props.allowEdit}
             id={food.id}
             item={food.item}
             toggleEdit={toggleEdit}
@@ -61,33 +66,33 @@ function Food(props) {
               onClick={() => {
                 if (
                   remainingCarb + Number(food.carb) >
-                  props.storedTotals[0].Carb
+                  storedTotals[0].Carb
                 ) {
-                  props.handleMacro(props.storedTotals[0].Carb, "Carb");
+                  handleMacro(storedTotals[0].Carb, "Carb");
                 } else {
-                  props.handleMacro(remainingCarb + Number(food.carb), "Carb");
+                  handleMacro(remainingCarb + Number(food.carb), "Carb");
                 }
                 if (
                   remainingProtein + Number(food.protein) >
-                  props.storedTotals[0].Protein
+                  storedTotals[0].Protein
                 ) {
-                  props.handleMacro(props.storedTotals[0].Protein, "Protein");
+                  handleMacro(storedTotals[0].Protein, "Protein");
                 } else {
-                  props.handleMacro(
+                  handleMacro(
                     remainingProtein + Number(food.protein),
                     "Protein"
                   );
                 }
                 if (
                   remainingFat + Number(food.fat) >
-                  props.storedTotals[0].Fat
+                  storedTotals[0].Fat
                 ) {
-                  props.handleMacro(props.storedTotals[0].Fat, "Fat");
+                  handleMacro(storedTotals[0].Fat, "Fat");
                 } else {
-                  props.handleMacro(remainingFat + Number(food.fat), "Fat");
+                  handleMacro(remainingFat + Number(food.fat), "Fat");
                 }
-                props.removeFood(food.id);
-                props.toggleColor(food.carb, food.protein, food.fat, 3);
+                removeFood(food.id);
+                toggleColor(food.carb, food.protein, food.fat, 3);
               }}
               aria-label="Delete"
             >

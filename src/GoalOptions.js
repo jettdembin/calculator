@@ -8,25 +8,13 @@ function GoalOptions(props) {
       <div className="Goal-wrapper">
         <div className="Goal">
           <h4>Cut</h4>
-          <GoalBtn
-            id={12}
-            {...props}
-            percentCarb={4}
-            percentProtein={4}
-            percentFat={2}
-          />
+          <GoalBtn id={12} percentCarb={4} percentProtein={4} percentFat={2} />
         </div>
       </div>
       <div className="Goal-wrapper">
         <div className="Goal">
           <h4>Maintain</h4>
-          <GoalBtn
-            id={15}
-            {...props}
-            percentCarb={5}
-            percentProtein={2}
-            percentFat={3}
-          />
+          <GoalBtn id={15} percentCarb={5} percentProtein={2} percentFat={3} />
         </div>
       </div>
       <div className="Goal-wrapper">
@@ -34,7 +22,6 @@ function GoalOptions(props) {
           <h4>Bulk</h4>
           <GoalBtn
             id={18}
-            {...props}
             percentCarb={5}
             percentProtein={1.5}
             percentFat={3.5}
