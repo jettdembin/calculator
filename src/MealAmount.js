@@ -5,13 +5,13 @@ function MealAmount(props) {
   let protein = props.storedTotals[0]["Protein"];
   let fat = props.storedTotals[0]["Fat"];
 
-  let storedCarb = JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+  let storedCarb = () => JSON.parse(window.localStorage.getItem("storedTotals"))[0][
     "Carb"
   ];
-  let storedProtein = JSON.parse(
+  let storedProtein = () => JSON.parse(
     window.localStorage.getItem("storedTotals")
   )[0]["Protein"];
-  let storedFat = JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+  let storedFat = () => JSON.parse(window.localStorage.getItem("storedTotals"))[0][
     "Fat"
   ];
 
