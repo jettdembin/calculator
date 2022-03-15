@@ -7,6 +7,7 @@ function MealAmount(props) {
   const { firstAdjustment, toggleIsFirstAdjustment, toggleIsAdjusted } =
     useContext(AdjustmentContext);
 
+<<<<<<< HEAD
   let carb = storedTotals[0]["Carb"];
   let protein = storedTotals[0]["Protein"];
   let fat = storedTotals[0]["Fat"];
@@ -34,6 +35,17 @@ function MealAmount(props) {
       return 0;
     }
   };
+=======
+  let storedCarb = () => JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+    "Carb"
+  ];
+  let storedProtein = () => JSON.parse(
+    window.localStorage.getItem("storedTotals")
+  )[0]["Protein"];
+  let storedFat = () => JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+    "Fat"
+  ];
+>>>>>>> noContext
 
   return (
     <div
