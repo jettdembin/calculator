@@ -7,35 +7,6 @@ function MealAmount(props) {
   const { firstAdjustment, toggleIsFirstAdjustment, toggleIsAdjusted } =
     useContext(AdjustmentContext);
 
-<<<<<<< HEAD
-  let carb = storedTotals[0]["Carb"];
-  let protein = storedTotals[0]["Protein"];
-  let fat = storedTotals[0]["Fat"];
-
-  let storedCarb = () => {
-    if (window.localStorage.getItem("storedTotals") !== null) {
-      return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"];
-    } else {
-      return 0;
-    }
-  };
-  let storedProtein = () => {
-    if (window.localStorage.getItem("storedTotals") !== null) {
-      return JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-        "Protein"
-      ];
-    } else {
-      return 0;
-    }
-  };
-  let storedFat = () => {
-    if (window.localStorage.getItem("storedTotals") !== null) {
-      return JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"];
-    } else {
-      return 0;
-    }
-  };
-=======
   let storedCarb = () => JSON.parse(window.localStorage.getItem("storedTotals"))[0][
     "Carb"
   ];
@@ -45,7 +16,6 @@ function MealAmount(props) {
   let storedFat = () => JSON.parse(window.localStorage.getItem("storedTotals"))[0][
     "Fat"
   ];
->>>>>>> noContext
 
   return (
     <div
@@ -53,7 +23,7 @@ function MealAmount(props) {
       className="Adjust-selection"
       onClick={() => {
         if (weight) {
-          updateMacros(carb, protein, fat, props.id);
+          updateMacros(props.carb, props.protein, props.fat, props.id);
           if (firstAdjustment === false) {
             toggleIsFirstAdjustment();
             toggleIsAdjusted();
