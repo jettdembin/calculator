@@ -1,5 +1,5 @@
-import React. { useEffect } from "react";
-import './App.css';
+import React, { useEffect } from "react";
+import "./App.css";
 import MacroApp from "./MacroApp";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="App">
-      <MacroApp/>
+      <MacroApp />
     </div>
   );
 }
