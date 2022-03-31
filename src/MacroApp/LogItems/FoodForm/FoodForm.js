@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./GoalOptions.css";
+import "../../GoalCalculation/GoalOptions/GoalOptions.css";
 import TextField from "@mui/material/TextField";
-import useFormState from "./hooks/useFormState";
-import useFormDigitState from "./hooks/useFormDigitState";
+import useFormState from "../../../hooks/useFormState";
+import useFormDigitState from "../../../hooks/useFormDigitState";
 
-function FoodForm(props) {
+const FoodForm = (props) => {
   const [value, handleFoodChange, reset] = useFormState("");
   const [carb, handleProteinChange, resetProtein] = useFormDigitState("");
   const [protein, handleCarbChange, resetCarb] = useFormDigitState("");
@@ -98,6 +98,6 @@ function FoodForm(props) {
       </form>
     </div>
   );
-}
+};
 
 export default FoodForm;

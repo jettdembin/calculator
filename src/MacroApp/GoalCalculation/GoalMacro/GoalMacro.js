@@ -1,6 +1,6 @@
 import React from "react";
 
-function GoalMacros(props) {
+const GoalMacros = (props) => {
   return (
     <>
       <div>
@@ -87,6 +87,6 @@ function GoalMacros(props) {
       </div>
     </>
   );
-}
+};
 
 export default GoalMacros;

@@ -1,8 +1,8 @@
 import React from "react";
-import * as mui from "./mui";
-import Food from "./Food";
+import * as mui from "../../../mui";
+import Food from "./Food/Food";
 
-function FoodList(props) {
+const FoodList = (props) => {
   let totalAmountMacrosforFoods = 0;
   let totalMacrosStored =
     props.storedTotals[0].Carb +
@@ -67,5 +67,5 @@ function FoodList(props) {
       </div>
     </div>
   );
-}
+};
 export default FoodList;

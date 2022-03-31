@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import MacroApp from "./MacroApp";
+import MacroApp from "./MacroApp/MacroApp";
 
-function App() {
+const App = () => {
   useEffect(() => {
     document.title = "Macro Calculator";
   }, []);
@@ -12,6 +12,6 @@ function App() {
       <MacroApp />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import * as mui from "./mui";
-import GoalCalculation from "./GoalCalculation";
-import LogItems from "./LogItems";
-import useFormDigitState from "./hooks/useFormDigitState";
+import * as mui from "../mui";
+import GoalCalculation from "./GoalCalculation/GoalCalculation";
+import LogItems from "./LogItems/LogItems";
+import useFormDigitState from "../hooks/useFormDigitState";
 
-function MacroApp() {
+const MacroApp = () => {
   //CONTEXT API REFACTOR BRANCH
 
   const adjustments = [
@@ -227,5 +227,5 @@ function MacroApp() {
       </mui.Grid>
     </mui.Paper>
   );
-}
+};
 export default MacroApp;

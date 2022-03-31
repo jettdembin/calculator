@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import WeightForm from "./WeightForm";
-import GoalOptions from "./GoalOptions";
-import GoalMacro from "./GoalMacro";
-import AdjustMeals from "./AdjustMeals";
+import WeightForm from "./WeightForm/WeightForm";
+import GoalOptions from "./GoalOptions/GoalOptions";
+import GoalMacro from "./GoalMacro/GoalMacro";
+import AdjustMeals from "./AdjustMeals/AdjustMeals";
 
-function GoalCalculation(props) {
+const GoalCalculation = (props) => {
   const [isAdjusted, setAdjusted] = useState(false);
   const [firstAdjustment, setFirstAdjustment] = useState(false);
   const toggleIsAdjusted = () => {
@@ -45,6 +45,6 @@ function GoalCalculation(props) {
       />
     </div>
   );
-}
+};
 
 export default GoalCalculation;

@@ -1,6 +1,6 @@
 import React from "react";
 
-function WeightForm(props) {
+const WeightForm = (props) => {
   return (
     <div
       style={{
@@ -21,6 +21,6 @@ function WeightForm(props) {
       </label>
     </div>
   );
-}
+};
 
 export default WeightForm;

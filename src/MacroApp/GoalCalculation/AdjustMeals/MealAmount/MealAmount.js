@@ -1,19 +1,16 @@
 import React from "react";
 
-function MealAmount(props) {
+const MealAmount = (props) => {
   let carb = props.storedTotals[0]["Carb"];
   let protein = props.storedTotals[0]["Protein"];
   let fat = props.storedTotals[0]["Fat"];
 
-  let storedCarb = () => JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-    "Carb"
-  ];
-  let storedProtein = () => JSON.parse(
-    window.localStorage.getItem("storedTotals")
-  )[0]["Protein"];
-  let storedFat = () => JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-    "Fat"
-  ];
+  let storedCarb = () =>
+    JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Carb"];
+  let storedProtein = () =>
+    JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Protein"];
+  let storedFat = () =>
+    JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Fat"];
 
   return (
     <div
@@ -42,6 +39,6 @@ function MealAmount(props) {
       {props.type}
     </div>
   );
-}
+};
 
 export default MealAmount;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import FoodForm from "./FoodForm";
-import FoodList from "./FoodList";
-import useFoodState from "./hooks/useFoodState";
+import FoodForm from "./FoodForm/FoodForm";
+import FoodList from "./FoodList/FoodList";
+import useFoodState from "../../hooks/useFoodState";
 
-function LogItems(props) {
+const LogItems = (props) => {
   // const initialFoods = JSON.parse(window.localStorage.getItem("foods") || []);
   const initialFoods = [];
   const { foods, addFood, removeFood, allowEdit } = useFoodState(initialFoods);
@@ -88,6 +88,6 @@ function LogItems(props) {
       />
     </div>
   );
-}
+};
 
 export default LogItems;

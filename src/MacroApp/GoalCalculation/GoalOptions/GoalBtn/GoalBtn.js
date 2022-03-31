@@ -1,6 +1,7 @@
 import React from "react";
-import "./GoalOptions.css";
-function GoalBtn(props) {
+import "../GoalOptions.css";
+
+const GoalBtn = (props) => {
   let id = props.id;
 
   let carb = Math.round(
@@ -152,6 +153,6 @@ function GoalBtn(props) {
       Calculate
     </button>
   );
-}
+};
 
 export default GoalBtn;

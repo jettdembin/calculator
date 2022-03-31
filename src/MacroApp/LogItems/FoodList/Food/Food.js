@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import * as mui from "./mui";
+import * as mui from "../../../../mui";
 import EditFoodForm from "./EditFoodForm";
 
-function Food(props) {
+const Food = (props) => {
   const food = props.food;
   const [isEditing, setIsEditing] = useState(false);
   const toggleEdit = () => {
@@ -105,5 +105,5 @@ function Food(props) {
       )}
     </mui.ListItem>
   );
-}
+};
 export default Food;
