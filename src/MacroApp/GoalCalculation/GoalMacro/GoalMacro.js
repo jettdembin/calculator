@@ -14,10 +14,25 @@ const GoalMacros = (props) => {
         <h2 style={{ textAlign: "center" }}>
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&
           props.isInitialLoad
-            ? JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                "Weight"
-              ] *
-              JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Goal"]
+            ? Number(
+                JSON.parse(window.localStorage.getItem("storedTotals")).slice(
+                  -3,
+                  -2
+                )
+              ) *
+              Number(
+                JSON.parse(window.localStorage.getItem("storedTotals")).slice(
+                  -14,
+                  -13
+                )
+              )
+              ? 0
+              : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+                  "Weight"
+                ] *
+                JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+                  "Goal"
+                ]
             : props.isAdjusted
             ? props.adjustedMacros[0].caloriesAdjusted
             : props.storedTotals[0]["Weight"] * props.storedTotals[0]["Goal"]}
