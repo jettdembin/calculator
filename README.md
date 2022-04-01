@@ -1,6 +1,7 @@
 # React Macro Calculator
 
-##Technologies Used
+## Technologies Used
+
 HTML5 | CSS3 | React Responsive Carousel | Framer Motion
 
 This application is intended to give the user a target goal of calories and macros, based on the user's goal. The user may choose up to one of three options, to cut, maintain or shred weight. 
