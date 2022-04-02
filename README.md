@@ -1,4 +1,4 @@
-# React Macro Calculator
+# Macro Meals – React Macro Calculator
 
 This application is intended to give the user a target goal of calories and macros, based on the user's goal. The user may choose up to one of three options, to cut, maintain or shred weight. 
 
