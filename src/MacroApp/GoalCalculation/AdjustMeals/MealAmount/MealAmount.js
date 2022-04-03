@@ -19,7 +19,7 @@ const MealAmount = (props) => {
       onClick={() => {
         if (props.weight) {
           props.updateMacros(carb, protein, fat, props.id);
-          if (props.firstAdjustment === false) {
+          if (!props.firstAdjustment) {
             props.toggleIsFirstAdjustment();
             props.toggleIsAdjusted();
           }
@@ -27,8 +27,11 @@ const MealAmount = (props) => {
           JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"]
         ) {
           props.updateMacros(storedCarb, storedProtein, storedFat, props.id);
-          if (props.firstAdjustment === false) {
+          if (!props.firstAdjustment) {
             props.toggleIsFirstAdjustment();
+            props.toggleIsAdjusted();
+          }
+          if (props.id === 1) {
             props.toggleIsAdjusted();
           }
         } else {

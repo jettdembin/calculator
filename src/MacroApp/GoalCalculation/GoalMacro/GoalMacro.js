@@ -26,10 +26,14 @@ const GoalMacros = (props) => {
                 // )
                 JSON.parse(window.localStorage.getItem("storedTotals"))[0][
                   "Goal"
-                ] *
-                JSON.parse(window.localStorage.getItem("storedTotals"))[0][
-                  "Weight"
-                ]
+                ] === 0
+                ? 0
+                : JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+                    "Goal"
+                  ] *
+                  JSON.parse(window.localStorage.getItem("storedTotals"))[0][
+                    "Weight"
+                  ]
               : 0
             : props.isAdjusted
             ? props.adjustedMacros[0].caloriesAdjusted

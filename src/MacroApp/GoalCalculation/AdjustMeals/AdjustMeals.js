@@ -7,7 +7,15 @@ function AdjustMeals(props) {
     <div>
       <div style={{ textAlign: "center" }}>
         <h4>Show Total Macros</h4>
-        <h6 style={{ marginTop: "-1rem" }}>(Per Meal)</h6>
+        <h6 style={{ marginTop: "-1rem" }}>
+          (
+          {JSON.parse(window.localStorage.getItem("storedTotals")) === null
+            ? `Calories per Day`
+            : props.totals[0].carb > props.adjustedMacros[0].carbAdjusted
+            ? `Calories per Meal`
+            : `Calories per Day`}
+          )
+        </h6>
       </div>
       <nav>
         <ul
