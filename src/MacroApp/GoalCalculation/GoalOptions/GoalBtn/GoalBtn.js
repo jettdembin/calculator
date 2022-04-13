@@ -87,7 +87,6 @@ const GoalBtn = (props) => {
             window.localStorage.getItem("storedTotals") !== null &&
             !props.weight
           ) {
-            console.log("in 1st, storedtotal");
             props.handleMacro(carbLoaded, "Carb");
             props.handleMacro(proteinLoaded, "Protein");
             props.handleMacro(fatLoaded, "Fat");
@@ -122,15 +121,8 @@ const GoalBtn = (props) => {
             props.setPercentCarb(props.percentCarb * 10);
             props.setPercentProtein(props.percentProtein * 10);
             props.setPercentFat(props.percentFat * 10);
-            console.log(
-              props.percentCarb,
-              props.percentProtein,
-              props.percentFat,
-              props.storedPercentages[0]["Fatpercent"]
-            );
           }
           if (props.weight) {
-            console.log("in 3rd, props.weight");
             props.handleMacro(carb, "Carb");
             props.handleMacro(protein, "Protein");
             props.handleMacro(fat, "Fat");
@@ -164,12 +156,6 @@ const GoalBtn = (props) => {
             props.setPercentCarb(props.percentCarb * 10);
             props.setPercentProtein(props.percentProtein * 10);
             props.setPercentFat(props.percentFat * 10);
-            console.log(
-              props.percentCarb,
-              props.percentProtein,
-              props.percentFat,
-              props.storedPercentages[0]["Fatpercent"]
-            );
           }
         } else {
           props.handleMacro(carb, "Carb");
@@ -204,12 +190,6 @@ const GoalBtn = (props) => {
           props.setPercentCarb(props.percentCarb * 10);
           props.setPercentProtein(props.percentProtein * 10);
           props.setPercentFat(props.percentFat * 10);
-          console.log(
-            props.percentCarb,
-            props.percentProtein,
-            props.percentFat,
-            props.storedPercentages[0]["Fatpercent"]
-          );
         }
       }}
     >
