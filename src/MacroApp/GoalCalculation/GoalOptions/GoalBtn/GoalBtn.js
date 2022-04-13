@@ -79,36 +79,10 @@ const GoalBtn = (props) => {
       className="Goal-btn"
       style={{ width: "80px" }}
       onClick={() => {
-        props.toggleGoal(id);
-        //dependant upon props.id of btn and weight state that is updated by user upon enter of weightform
-        props.updateCal(id);
-
-        props.updateAll(carb, "carb");
-        props.updateAll(protein, "protein");
-        props.updateAll(fat, "fat");
-
-        if (props.firstAdjustment === true) {
-          props.toggleIsFirstAdjustment();
-          props.toggleIsAdjusted();
-        }
-
-        //set storage for percents based on btn id prop
-        props.handleStoredPercent(props.percentCarb * 10, "Carbpercent");
-        props.handleStoredPercent(props.percentProtein * 10, "Proteinpercent");
-        props.handleStoredPercent(props.percentFat * 10, "Fatpercent");
-        //set storage for percents based on btn id prop
-        props.setPercentCarb(props.percentCarb * 10);
-        props.setPercentProtein(props.percentProtein * 10);
-        props.setPercentFat(props.percentFat * 10);
-        console.log(
-          props.percentCarb,
-          props.percentProtein,
-          props.percentFat,
-          props.storedPercentages[0]["Fatpercent"]
-        );
-
-        //set storage for totals on btn click
-        if (props.isInitialLoad) {
+        //check if weight is entered
+        if (props.isInitialLoad && !props.weight) {
+          alert("Please re-enter weight");
+        } else if (props.isInitialLoad) {
           if (
             window.localStorage.getItem("storedTotals") !== null &&
             !props.weight
@@ -124,6 +98,36 @@ const GoalBtn = (props) => {
             props.handleStoredTotal(id, "Goal");
             props.handleStoredTotal(weightLoaded, "Weight");
             props.setInitialLoad(false);
+            props.toggleGoal(id);
+            //dependant upon props.id of btn and weight state that is updated by user upon enter of weightform
+            props.updateCal(id);
+
+            props.updateAll(carb, "carb");
+            props.updateAll(protein, "protein");
+            props.updateAll(fat, "fat");
+
+            if (props.firstAdjustment === true) {
+              props.toggleIsFirstAdjustment();
+              props.toggleIsAdjusted();
+            }
+
+            //set storage for percents based on btn id prop
+            props.handleStoredPercent(props.percentCarb * 10, "Carbpercent");
+            props.handleStoredPercent(
+              props.percentProtein * 10,
+              "Proteinpercent"
+            );
+            props.handleStoredPercent(props.percentFat * 10, "Fatpercent");
+            //set storage for percents based on btn id prop
+            props.setPercentCarb(props.percentCarb * 10);
+            props.setPercentProtein(props.percentProtein * 10);
+            props.setPercentFat(props.percentFat * 10);
+            console.log(
+              props.percentCarb,
+              props.percentProtein,
+              props.percentFat,
+              props.storedPercentages[0]["Fatpercent"]
+            );
           }
           if (props.weight) {
             console.log("in 3rd, props.weight");
@@ -137,22 +141,75 @@ const GoalBtn = (props) => {
             props.handleStoredTotal(id, "Goal");
             props.handleStoredTotal(Number(props.weight), "Weight");
             props.setInitialLoad(false);
+            //dependant upon props.id of btn and weight state that is updated by user upon enter of weightform
+            props.updateCal(id);
+
+            props.updateAll(carb, "carb");
+            props.updateAll(protein, "protein");
+            props.updateAll(fat, "fat");
+
+            if (props.firstAdjustment === true) {
+              props.toggleIsFirstAdjustment();
+              props.toggleIsAdjusted();
+            }
+
+            //set storage for percents based on btn id prop
+            props.handleStoredPercent(props.percentCarb * 10, "Carbpercent");
+            props.handleStoredPercent(
+              props.percentProtein * 10,
+              "Proteinpercent"
+            );
+            props.handleStoredPercent(props.percentFat * 10, "Fatpercent");
+            //set storage for percents based on btn id prop
+            props.setPercentCarb(props.percentCarb * 10);
+            props.setPercentProtein(props.percentProtein * 10);
+            props.setPercentFat(props.percentFat * 10);
+            console.log(
+              props.percentCarb,
+              props.percentProtein,
+              props.percentFat,
+              props.storedPercentages[0]["Fatpercent"]
+            );
           }
         } else {
-          if (props.isInitialLoad === false && !props.weight) {
-            alert("Please re-enter weight");
-          } else {
-            console.log("in last, else");
-            props.handleMacro(carb, "Carb");
-            props.handleMacro(protein, "Protein");
-            props.handleMacro(fat, "Fat");
-            //set storage for total macros and percentages
-            props.handleStoredTotal(carb, "Carb");
-            props.handleStoredTotal(protein, "Protein");
-            props.handleStoredTotal(fat, "Fat");
-            props.handleStoredTotal(id, "Goal");
-            props.handleStoredTotal(Number(props.weight), "Weight");
+          props.handleMacro(carb, "Carb");
+          props.handleMacro(protein, "Protein");
+          props.handleMacro(fat, "Fat");
+          //set storage for total macros and percentages
+          props.handleStoredTotal(carb, "Carb");
+          props.handleStoredTotal(protein, "Protein");
+          props.handleStoredTotal(fat, "Fat");
+          props.handleStoredTotal(id, "Goal");
+          props.handleStoredTotal(Number(props.weight), "Weight");
+          //dependant upon props.id of btn and weight state that is updated by user upon enter of weightform
+          props.updateCal(id);
+
+          props.updateAll(carb, "carb");
+          props.updateAll(protein, "protein");
+          props.updateAll(fat, "fat");
+
+          if (props.firstAdjustment === true) {
+            props.toggleIsFirstAdjustment();
+            props.toggleIsAdjusted();
           }
+
+          //set storage for percents based on btn id prop
+          props.handleStoredPercent(props.percentCarb * 10, "Carbpercent");
+          props.handleStoredPercent(
+            props.percentProtein * 10,
+            "Proteinpercent"
+          );
+          props.handleStoredPercent(props.percentFat * 10, "Fatpercent");
+          //set storage for percents based on btn id prop
+          props.setPercentCarb(props.percentCarb * 10);
+          props.setPercentProtein(props.percentProtein * 10);
+          props.setPercentFat(props.percentFat * 10);
+          console.log(
+            props.percentCarb,
+            props.percentProtein,
+            props.percentFat,
+            props.storedPercentages[0]["Fatpercent"]
+          );
         }
       }}
     >
