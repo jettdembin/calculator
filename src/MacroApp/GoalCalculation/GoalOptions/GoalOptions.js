@@ -7,7 +7,13 @@ const GoalOptions = (props) => {
     <section className="Goal-cntr">
       <div className="Goal-wrapper">
         <div className="Goal">
-          <h4>Cut</h4>
+          <h4
+            style={{
+              color: props.storedTotals[0]["Goal"] === 12 ? "#1976d2" : "black",
+            }}
+          >
+            Cut
+          </h4>
           <GoalBtn
             id={12}
             {...props}
@@ -19,7 +25,13 @@ const GoalOptions = (props) => {
       </div>
       <div className="Goal-wrapper">
         <div className="Goal">
-          <h4>Maintain</h4>
+          <h4
+            style={{
+              color: props.storedTotals[0]["Goal"] === 15 ? "#1976d2" : "black",
+            }}
+          >
+            Maintain
+          </h4>
           <GoalBtn
             id={15}
             {...props}
@@ -31,7 +43,13 @@ const GoalOptions = (props) => {
       </div>
       <div className="Goal-wrapper">
         <div className="Goal">
-          <h4>Bulk</h4>
+          <h4
+            style={{
+              color: props.storedTotals[0]["Goal"] === 18 ? "#1976d2" : "black",
+            }}
+          >
+            Bulk
+          </h4>
           <GoalBtn
             id={18}
             {...props}

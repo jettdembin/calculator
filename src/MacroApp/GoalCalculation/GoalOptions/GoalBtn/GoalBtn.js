@@ -77,6 +77,7 @@ const GoalBtn = (props) => {
   return (
     <button
       className="Goal-btn"
+      style={{ width: "80px" }}
       onClick={() => {
         props.toggleGoal(id);
         //dependant upon props.id of btn and weight state that is updated by user upon enter of weightform
@@ -155,7 +156,7 @@ const GoalBtn = (props) => {
         }
       }}
     >
-      Calculate
+      {props.storedTotals[0]["Goal"] === props.id ? "Current" : "Calculate"}
     </button>
   );
 };
