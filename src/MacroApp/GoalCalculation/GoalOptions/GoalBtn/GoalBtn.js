@@ -17,7 +17,7 @@ const GoalBtn = (props) => {
       Math.round(
         (props.id *
           JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-          (props.percentCarb / 10)) /
+          (props.percentCarb / 100)) /
           4
       );
     }
@@ -36,7 +36,7 @@ const GoalBtn = (props) => {
       Math.round(
         (props.id *
           JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-          (props.percentProtein / 10)) /
+          (props.percentProtein / 100)) /
           4
       );
     }
@@ -55,8 +55,8 @@ const GoalBtn = (props) => {
       Math.round(
         (props.id *
           JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"] *
-          (props.percentFat / 10)) /
-          4
+          (props.percentFat / 100)) /
+          9
       );
     }
   };
@@ -73,11 +73,6 @@ const GoalBtn = (props) => {
       ];
     }
   };
-
-  //percents loaded from storage or not
-  let percentCarb = props.percentCarb * 10;
-  let percentProtein = props.percentProtein * 10;
-  let percentFat = props.percentProtein * 10;
 
   return (
     <button
@@ -97,9 +92,19 @@ const GoalBtn = (props) => {
         }
 
         //set storage for percents based on btn id prop
-        props.handleStoredPercent(percentCarb, "Carbpercent");
-        props.handleStoredPercent(percentProtein, "Proteinpercent");
-        props.handleStoredPercent(percentFat, "Fatpercent");
+        props.handleStoredPercent(props.percentCarb * 10, "Carbpercent");
+        props.handleStoredPercent(props.percentProtein * 10, "Proteinpercent");
+        props.handleStoredPercent(props.percentFat * 10, "Fatpercent");
+        //set storage for percents based on btn id prop
+        props.setPercentCarb(props.percentCarb * 10);
+        props.setPercentProtein(props.percentProtein * 10);
+        props.setPercentFat(props.percentFat * 10);
+        console.log(
+          props.percentCarb,
+          props.percentProtein,
+          props.percentFat,
+          props.storedPercentages[0]["Fatpercent"]
+        );
 
         //set storage for totals on btn click
         if (props.isInitialLoad) {
@@ -145,7 +150,7 @@ const GoalBtn = (props) => {
             props.handleStoredTotal(protein, "Protein");
             props.handleStoredTotal(fat, "Fat");
             props.handleStoredTotal(id, "Goal");
-            props.handleStoredTotal(props.weight, "Weight");
+            props.handleStoredTotal(Number(props.weight), "Weight");
           }
         }
       }}

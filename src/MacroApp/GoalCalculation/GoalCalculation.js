@@ -13,6 +13,9 @@ const GoalCalculation = (props) => {
   const toggleIsFirstAdjustment = () => {
     setFirstAdjustment(!firstAdjustment);
   };
+  const [percentCarb, setPercentCarb] = useState(0);
+  const [percentProtein, setPercentProtein] = useState(0);
+  const [percentFat, setPercentFat] = useState(0);
   return (
     <div
       className="GoalCalculation"
@@ -26,6 +29,12 @@ const GoalCalculation = (props) => {
         setAdjusted={setAdjusted}
         toggleIsFirstAdjustment={toggleIsFirstAdjustment}
         firstAdjustment={firstAdjustment}
+        percentCarb={percentCarb}
+        setPercentCarb={setPercentCarb}
+        percentProtein={percentProtein}
+        setPercentProtein={setPercentProtein}
+        percentFat={percentFat}
+        setPercentFat={setPercentFat}
       />
       <GoalMacro
         {...props}
@@ -34,6 +43,12 @@ const GoalCalculation = (props) => {
         setAdjusted={setAdjusted}
         toggleIsFirstAdjustment={toggleIsFirstAdjustment}
         firstAdjustment={firstAdjustment}
+        percentCarb={percentCarb}
+        setPercentCarb={setPercentCarb}
+        percentProtein={percentProtein}
+        setPercentProtein={setPercentProtein}
+        percentFat={percentFat}
+        setPercentFat={setPercentFat}
       />
       <AdjustMeals
         {...props}
@@ -42,6 +57,12 @@ const GoalCalculation = (props) => {
         setAdjusted={setAdjusted}
         toggleIsFirstAdjustment={toggleIsFirstAdjustment}
         firstAdjustment={firstAdjustment}
+        percentCarb={percentCarb}
+        setPercentCarb={setPercentCarb}
+        percentProtein={percentProtein}
+        setPercentProtein={setPercentProtein}
+        percentFat={percentFat}
+        setPercentFat={setPercentFat}
       />
     </div>
   );

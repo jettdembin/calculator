@@ -28,7 +28,7 @@ const MacroApp = () => {
     if (window.localStorage.getItem("remaining") !== null) {
       return JSON.parse(window.localStorage.getItem("remaining"));
     } else {
-      return JSON.stringify(initialRemaining);
+      return initialRemaining;
     }
   };
   //set totals in localstorage
@@ -45,7 +45,7 @@ const MacroApp = () => {
     if (window.localStorage.getItem("storedTotals") !== null) {
       return JSON.parse(window.localStorage.getItem("storedTotals"));
     } else {
-      return JSON.stringify(initialTotals);
+      return initialTotals;
     }
   };
 
@@ -61,7 +61,7 @@ const MacroApp = () => {
     if (window.localStorage.getItem("storedPercentages") !== null) {
       return JSON.parse(window.localStorage.getItem("storedPercentages"));
     } else {
-      return JSON.stringify(initialPercentages);
+      return initialPercentages;
     }
   };
 
@@ -134,9 +134,7 @@ const MacroApp = () => {
     }
   };
   useEffect(() => {
-    JSON.stringify(remaining) === remaining
-      ? window.localStorage.setItem("remaining", remaining)
-      : window.localStorage.setItem("remaining", JSON.stringify(remaining));
+    window.localStorage.setItem("remaining", JSON.stringify(remaining));
   }, [remaining]);
 
   //6
@@ -147,12 +145,7 @@ const MacroApp = () => {
     }
   };
   useEffect(() => {
-    JSON.stringify(storedTotals) === storedTotals
-      ? window.localStorage.setItem("storedTotals", storedTotals)
-      : window.localStorage.setItem(
-          "storedTotals",
-          JSON.stringify(storedTotals)
-        );
+    window.localStorage.setItem("storedTotals", JSON.stringify(storedTotals));
   }, [storedTotals]);
 
   //7
@@ -163,12 +156,10 @@ const MacroApp = () => {
     }
   };
   useEffect(() => {
-    JSON.stringify(storedPercentages) === storedPercentages
-      ? window.localStorage.setItem("storedPercentages", storedPercentages)
-      : window.localStorage.setItem(
-          "storedPercentages",
-          JSON.stringify(storedPercentages)
-        );
+    window.localStorage.setItem(
+      "storedPercentages",
+      JSON.stringify(storedPercentages)
+    );
   }, [storedPercentages]);
 
   return (
