@@ -8,8 +8,8 @@ const GoalMacros = (props) => {
           {JSON.parse(window.localStorage.getItem("storedTotals")) === null
             ? `Calories per Day`
             : props.totals[0].carb > props.adjustedMacros[0].carbAdjusted
-            ? `Calories per Meal`
-            : `Calories per Day`}
+            ? `Calories per Day`
+            : `Calories per Meal`}
         </h2>
         <h2 style={{ textAlign: "center" }}>
           {JSON.parse(window.localStorage.getItem("storedTotals")) !== null &&

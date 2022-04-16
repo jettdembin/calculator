@@ -23,6 +23,9 @@ const MealAmount = (props) => {
             props.toggleIsFirstAdjustment();
             props.toggleIsAdjusted();
           }
+          if (props.id === 1 && !props.firstAdjustment) {
+            props.toggleIsAdjusted();
+          }
         } else if (
           JSON.parse(window.localStorage.getItem("storedTotals"))[0]["Weight"]
         ) {
